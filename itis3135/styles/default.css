@@ -19,38 +19,21 @@ h2 {
 p, section {
     background-color: #d5c3cf;
     color: #331832;
-
-    a:link {
-        color: #586f6b;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: #b4ceb3;
-        text-decoration: underline;
-    }
-
-    a:visited {
-        color: #586f6b;
-        text-decoration: none;
-    }
 }
 
-nav {
-    a:link {
-        color: #586f6b;
-        text-decoration: none;
-    }
+a:link {
+    color: #586f6b;
+    text-decoration: none;
+}
 
-    a:hover {
-        color: #331832;
-        text-decoration: underline;
-    }
+a:hover {
+    color: #331832;
+    text-decoration: underline;
+}
 
-    a:visited {
-        color: #586f6b;
-        text-decoration: none;
-    }
+a:visited {
+    color: #586f6b;
+    text-decoration: none;
 }
 
 li {
