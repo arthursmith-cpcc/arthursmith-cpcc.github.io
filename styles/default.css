@@ -6,8 +6,12 @@ body {
     padding-right: 5px;
 }
 
-h1, nav {
+nav {
     background-color: #a8c686;
+    font-family: Jost, sans-serif;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 h1 {
@@ -15,20 +19,26 @@ h1 {
     color: #0d1b1e;
     font-size: 50px;
     margin-top: 25px;
+    background-color: #a8c686;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 h2 {
     font-family: Quicksand, sans-serif;
     font-size: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-p, nav, ul, blockquote {
+ul, blockquote {
     font-family: Jost, sans-serif;
 }
 
-h1, h2, p, nav {
+p {
     padding-left: 10px;
     padding-right: 10px;
+    font-family: Jost, sans-serif;
 }
 
 ul li {
@@ -67,8 +77,4 @@ p a:visited {
 p a:hover {
     color: #853b28;
     text-decoration: underline;
-}
-
-nav {
-    margin-bottom: 25px;
 }
