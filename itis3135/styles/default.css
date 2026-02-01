@@ -1,0 +1,41 @@
+body {
+    background-color: #cedfcd;
+    font-family: "Roboto", sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 1%;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    color: #242e2c;
+}
+
+h2 {
+    font-family: "Share Tech", sans-serif;
+    color: #331832;
+}
+
+p, section {
+    background-color: #bba0b2;
+    
+}
+
+a:link {
+    color: #586f6b;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b4ceb3;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #586f6b;
+    text-decoration: none;
+}
+
+li {
+    padding-right: 3%;
+}
