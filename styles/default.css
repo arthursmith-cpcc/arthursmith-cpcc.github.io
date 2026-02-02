@@ -6,7 +6,7 @@ body {
     padding-right: 5px;
 }
 
-nav {
+.footer_nav {
     background-color: #a8c686;
     font-family: "Jost", sans-serif;
     margin-bottom: 25px;
@@ -14,10 +14,17 @@ nav {
     padding-right: 10px;
 }
 
+.header_nav {
+    font-family: "Jost", sans-serif;
+}
+
 h1 {
     font-family: "PT Serif", serif;
     color: #0d1b1e;
-    font-size: 50px;
+    font-size: 50px;    
+}
+
+header {
     margin-top: 25px;
     background-color: #a8c686;
     padding-left: 10px;
@@ -49,32 +56,43 @@ ol li {
     padding-right: 2%;
 }
 
-.footer_nav a:link {
+nav a:link {
     color: #0d1b1e;
     text-decoration: none;
 }
 
-.footer_nav a:visited {
+nav a:visited {
     color: #0d1b1e;
     text-decoration: none;
 }
 
-.footer_nav a:hover {
+nav a:hover {
     color: #853b28;
     text-decoration: underline;
 }
 
 p a:link {
     color: #0d1b1e;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 p a:visited {
     color: #0d1b1e;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 p a:hover {
     color: #853b28;
     text-decoration: underline;
+}
+
+figure img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+figure figcaption {
+    margin-left: 95px;
+    font-style: italic;
 }

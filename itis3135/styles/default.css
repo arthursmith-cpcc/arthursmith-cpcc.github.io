@@ -39,3 +39,8 @@ a:visited {
 li {
     padding-right: 3%;
 }
+
+hr {
+    max-width: 65%;
+    margin-left: 0px;
+}
