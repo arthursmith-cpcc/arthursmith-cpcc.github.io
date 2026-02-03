@@ -22,7 +22,7 @@ p, section {
 }
 
 a:link {
-    color: #586f6b;
+    color: #9f422d;
     text-decoration: none;
 }
 
@@ -33,7 +33,20 @@ a:hover {
 
 a:visited {
     color: #586f6b;
-    text-decoration: none;
+}
+
+p, section a:link {
+    color: #9f422d;
+    text-decoration: underline;
+}
+
+p, section a:hover {
+    color: #331832;
+    text-decoration: underline;
+}
+
+p, section a:visited {
+    color: #586f6b;
 }
 
 li {
