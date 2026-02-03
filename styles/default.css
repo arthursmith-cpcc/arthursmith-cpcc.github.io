@@ -90,9 +90,16 @@ figure img{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    max-width: 80%;
 }
 
 figure figcaption {
-    margin-left: 95px;
     font-style: italic;
+    contain: inline-size;
+    margin-left: 10%;
+}
+
+figure {
+    inline-size: fit-content;
+    margin-inline: auto;
 }
