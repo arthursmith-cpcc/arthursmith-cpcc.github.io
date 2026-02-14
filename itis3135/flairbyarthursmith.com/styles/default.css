@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(#b1d1d3 80%, #fffff2);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1d3334;
+    height: 100vh;
+    padding: 0 5%;
+}
+
+h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header {
+    background: linear-gradient(#b1b1b1, #efe9f4, #b1d1d3);
+    font-size: 2rem;
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 20px;
+}
+
+header img {
+    max-width: 500px;
+    max-height: 300px;
+    display: inline-block;
+    width: 35%;
+    height: 50%;
+    vertical-align: middle;
+}
+
+span {
+    font-family: cursive;
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 0 3px;
+}
+
+header span {
+    margin: 0 10px;
+}
+
+section {
+    color: #130303;
+    display: inline-block;
+    height: 40vh;
+    margin: 0 auto;
+}
+
+.home {
+    width: 65%;
+}
+
+.contact {
+    width: 30%;
+    text-align: right;
+}
+
+li {
+    margin: .5em 0;
+}
