@@ -13,9 +13,64 @@
 <body>
     <div data-include="./components/header.html"></div>
     <main>
-        <h2>
-            Inventory
-        </h2>
+        <h2>Inventory</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="read">
+                    <td>Havana Nocturne</td>
+                    <td>T.J. English</td>
+                    <td>Non-Fiction</td>
+                    <td><span class="status">Read</span></td>
+                    <td><span class="rate two">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+                <tr class="to-read">
+                    <td>Little Women</td>
+                    <td>L.M. Alcott</td>
+                    <td>Fiction</td>
+                    <td><span class="status">To Read</span></td>
+                    <td><span class="rate">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+                <tr class="in-progress">
+                    <td>The Savage City</td>
+                    <td>T.J. English</td>
+                    <td>Non-Fiction</td>
+                    <td><span class="status">In Progress</span></td>
+                    <td><span class="rate">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+                <tr class="in-progress">
+                    <td>Infinite Jest</td>
+                    <td>D.F. Wallace</td>
+                    <td>Fiction</td>
+                    <td><span class="status">In Progress</span></td>
+                    <td><span class="rate">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
     <div data-include="./components/footer.html"></div>
     <script src="./scripts/include.min.js"></script>
