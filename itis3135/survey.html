@@ -10,7 +10,92 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap" rel="stylesheet">
     <style>
-
+        body {
+            box-sizing: border-box;
+        }
+        main {
+            display: grid;
+            grid-template-areas: 'header-two header-two logo''invitation invitation invitation''form form form';
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 3%;
+        }
+        main img {
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+            grid-area: logo;
+            transform: scale(60%);
+            border-radius: 15%;
+        }
+        h2 {
+            grid-area: header-two;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            
+        }
+        main > p:first-of-type {
+            grid-area: invitation;
+            font-size: 1.5em;
+            text-decoration: underline;
+            margin-top: 0;
+        }
+        form {
+            grid-area: form;
+        }
+        label, input {
+            display: inline-block;
+        }
+        #age {
+            width: 10%;
+        }
+        
+        input:focus, textarea:focus, #rating:focus {
+            
+            outline: 2px solid cyan;
+        }
+        input:hover, textarea:hover, #rating:hover {
+            outline: 2px solid cyan;
+            cursor: pointer;
+        }
+        button {
+            display: block;
+            border: none;
+            width: 15%;
+            height: 7.5%;
+            font-size: 1.25em;
+            color: #ddd;
+            margin: 4px;
+            border-radius: 8%;
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%)
+        }
+        button:focus {
+            outline: 2px solid cyan;
+        }
+        button:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        @media (max-width: 750px) {
+            main {
+                grid-template-areas: 'header-two logo''invitation invitation''form form';
+                grid-template-columns: 1fr 1fr;
+            }
+            .name-email-age {
+                display: flex;
+                flex-direction: column;
+            }
+            #age {
+                width: 70%;
+            }
+            .name-email-age input {
+                width: 70%;
+            }
+            button {
+                width: 12%;
+                height: 6.75%;
+                font-size: .9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -19,38 +104,41 @@
         <h2>
             Survey
         </h2>
+        <img src="./images/saber-tooth.svg" alt="Sabertooth Lodge Logo">
         <p>Tell us about your stay at the Sabertooth Lodge!</p>
         <form id="survey-form">
-        <label for="name">Name (required)</label>
-        <input required id="name" name="name" type="text" placeholder="e.g., Jane Doe">
-        <label for="email">E-mail (required)</label>
-        <input required id="email" type="email" name="email" placeholder="account@email.com">
-        <label for="age">Age</label>
-        <input type="number" id="age" min=5 max=125 placeholder="5 to 125">
-        <p>How Much Did You Enjoy Your Stay?</p>
-        <select id="rating" name="rating">
-            <option value="" selected>(select a rating)</option>
-            <option value="5">5</option>
-            <option value="4">4</option>
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1</option>
-        </select>
-        <p>Would you recommend our facility?</p>
-        <input type="radio" name="recommend" id="recommend-yes" value="yes" checked>
-        <label for="recommend-yes">Yes</label>
-        <input type="radio" name="recommend" id="recommend-no" value="no">
-        <label for="recommend-no">No</label>
-        <p>What amenities did you use during your stay?</p>
-        <input type="checkbox" id="spa" name="amenity" value="spa">
-        <label for="spa">Spa</label>
-        <input type="checkbox" id="pool" name="amenity" value="pool">
-        <label for="pool">Pool</label>
-        <input type="checkbox" value="bar" id="bar" name="amenity">
-        <label for="bar">Bar</label>
-        <p>Please add any additional comments you would like to share</p>
-        <textarea name="comments" id="comments" rows="7" cols="50"></textarea>
-        <button type="submit" id="submit">Submit</button>
+            <div class="name-email-age">
+                <label for="name">Name (required)</label>
+                <input required id="name" name="name" type="text" placeholder="e.g., Jane Doe">
+                <label for="email">E-mail (required)</label>
+                <input required id="email" type="email" name="email" placeholder="account@email.com">
+                <label for="age">Age</label>
+                <input type="number" id="age" min=5 max=125 placeholder="5 to 125">
+            </div>
+            <p>How Much Did You Enjoy Your Stay?</p>
+            <select id="rating" name="rating">
+                <option value="" selected>(select a rating)</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+            <p>Would you recommend our facility?</p>
+            <input type="radio" name="recommend" id="recommend-yes" value="yes" checked>
+            <label for="recommend-yes">Yes</label>
+            <input type="radio" name="recommend" id="recommend-no" value="no">
+            <label for="recommend-no">No</label>
+            <p>What amenities did you use during your stay?</p>
+            <input type="checkbox" id="spa" name="amenity" value="spa">
+            <label for="spa">Spa</label>
+            <input type="checkbox" id="pool" name="amenity" value="pool">
+            <label for="pool">Pool</label>
+            <input type="checkbox" value="bar" id="bar" name="amenity">
+            <label for="bar">Bar</label>
+            <p>Please add any additional comments you would like to share</p>
+            <textarea name="comments" id="comments" rows="7" cols="50"></textarea>
+            <button type="submit" id="submit">Submit</button>
         </form>
     </main>
     <div data-include="./components/footer.html"></div>
