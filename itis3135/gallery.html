@@ -10,44 +10,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap" rel="stylesheet">
     <style>
-        #playing-cards {
+        body {
+            box-sizing: border-box;
+        }
+        main {
+            display: grid;
+            grid-template-areas: 'header-two header-two logo''invitation invitation invitation''gallery gallery gallery';
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+        main > img {
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+            grid-area: logo;
+            transform: scale(60%);
+            border-radius: 15%;
+        }
+        h2 {
+            grid-area: header-two;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            
+        }
+        main > p:first-of-type {
+            grid-area: invitation;
+            font-size: 1.5em;
+            text-decoration: underline;
+            margin-top: 0;
+        }
+        #photo-gallery {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 5px;
             margin: 20px auto;
             background-color: #d5c3cf;
+            width: 100%;
+            grid-area: gallery;
         }
 
-        .card {
+        .photo {
             display: flex;
-            justify-content: space-between;
-            height: 200px;
-            width: 120px;
-            border: 1px solid black;
-            border-radius: 10px;
-            font-size: 1.5em;
-            padding: 5px;
+            flex-direction: row;
+            height: 120px;
+            width: 200px;
+            border-radius: 10%;
             background-color: #ffffee;
-            box-sizing: content-box;
+            box-sizing: border-box;
+            transition: 1s ease-in-out;
         }
 
-        .left {
-            align-self: flex-start;
+        .photo:hover {
+            transform: scale(300%);
+            z-index: 1;
         }
 
-        .middle {
-            align-self: center;
-            display: flex;
-            flex-direction: column;
+        .photo > img {
+            width: 100%;
+            border-radius: 5%;
         }
-
-        .right {
-            align-self: flex-end;
-        }
-
-        #heart, #diamond {
-            color: red;
+        @media (max-width: 750px) {
+            main {
+                grid-template-areas: 'header-two logo''invitation invitation''gallery gallery';
+                grid-template-columns: 1fr 1fr;
+            }
+            .photo:hover {
+                transform: scale(200%);
+                z-index: 1;
+            }
         }
     </style>
 </head>
@@ -55,27 +87,24 @@
     <div data-include="./components/header.html"></div>
     <main>
         <h2>Gallery</h2>
-        <div id="playing-cards">
-            <div class="card">
-                <div class="left">2♠</div>
-                <div class="middle">♠♠</div>
-                <div class="right">♠2</div>
-            </div>
-            <div class="card">
-                <div class="left">3♣</div>
-                <div class="middle">♣♣♣</div>
-                <div class="right">♣3</div>
-            </div>
-            <div class="card" id="heart">
-                <div class="left">4♥</div>
-                <div class="middle">♥♥♥♥</div>
-                <div class="right">♥4</div>
-            </div>
-            <div class="card" id="diamond">
-                <div class="left">5♦</div>
-                <div class="middle">♦♦♦♦♦</div>
-                <div class="right">♦5</div>
-            </div>
+        <img src="./images/saber-tooth.svg" alt="Sabertooth Lodge Logo">
+        <p>See our lodge for yourself!</p>
+        <div id="photo-gallery">
+            <figure class="photo">
+                <img src="./images/flinstones-hotel-lobby.jpg" alt="Sabertooth Lodge lobby">
+            </figure>
+            <figure class="photo">
+                <img src="./images/lobby-hotel-is-decorated-with-stone-wall-large-rock-wall_815143-492.avif" alt="Large Stone Wall">
+            </figure>
+            <figure class="photo">
+                <img src="./images/flintstone-house-exterior.jpeg" alt="Sabertooth Lodge Cabin Exterior">
+            </figure>
+            <figure class="photo">
+                <img src="./images/flinstones-house-kitchen.jpg" alt="Sabertooth Lodge Cabin Kitchen">
+            </figure>
+            <figure class="photo">
+                <img src="./images/flintstone-house-interior.jpeg" alt="View from the Cabin">
+            </figure>
         </div>
     </main>
     <div data-include="./components/footer.html"></div>
