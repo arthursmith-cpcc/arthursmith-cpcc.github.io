@@ -9,61 +9,177 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        main {
+            display: grid;
+            grid-template-areas: 'header-two header-two logo''invitation invitation invitation''table table table';
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+        main > img {
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+            grid-area: logo;
+            transform: scale(60%);
+            border-radius: 15%;
+        }
+        h2 {
+            grid-area: header-two;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            
+        }
+
+        main > p:first-of-type {
+            grid-area: invitation;
+            font-size: 1.5em;
+            text-decoration: underline;
+            margin-top: 0;
+        }
+
+        table {
+            grid-area: table;
+            background-color: #d5c3cf;
+            color: #331832;
+        }
+
+        tr > th {
+            text-align: left;
+            font-size: 1.25em;
+        }
+
+        span {
+            display: inline-block;
+        }
+        span[class^="rate"] > span{
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: auto 3px;
+            height: .75em;
+            width: .75em;
+            box-sizing: border-box;
+        }
+
+        tr.red-wine > td > span[class~="three"] > span:nth-of-type(-n+3) {
+            background-color: rgb(54, 7, 7);
+        }
+
+        tr.red-wine > td > span[class~="four"] > span {
+            background-color: rgb(54, 7, 7);
+        }
+
+        tr.white-wine > td > span[class~="three"] > span:nth-of-type(-n+3) {
+            background-color: rgb(94, 89, 17);
+        }
+
+        tr.white-wine > td > span[class~="four"] > span {
+            background-color: rgb(94, 89, 17);
+        }
+
+        tr[class="red-wine"] {
+            background-image: linear-gradient(to bottom, rgb(54, 7, 7) 5%, #d5c3cf 15%);
+        }
+        tr[class="white-wine"] {
+            background-image: linear-gradient(to bottom, rgb(94, 89, 17) 5%, #d5c3cf 15%);
+        }
+
+        @media (max-width: 750px) {
+            main {
+                grid-template-areas: 'header-two logo''invitation invitation''table table';
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
     <main>
         <h2>Inventory</h2>
+        <img src="./images/saber-tooth.svg" alt="Sabertooth Lodge Logo">
+        <p>Come Sample Our Favorite Wines!</p>
         <table>
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Category</th>
-                    <th>Status</th>
-                    <th>Rate</th>
+                    <th>Wine</th>
+                    <th>Country</th>
+                    <th>Vinyard</th>
+                    <th>Vintage</th>
+                    <th>Rating</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="read">
-                    <td>Havana Nocturne</td>
-                    <td>T.J. English</td>
-                    <td>Non-Fiction</td>
-                    <td><span class="status">Read</span></td>
-                    <td><span class="rate two">
+                <tr class="red-wine">
+                    <td>Pinot Noir</td>
+                    <td>United States</td>
+                    <td>Classic Napa</td>
+                    <td>2016</td>
+                    <td><span class="rate three">
                     <span></span>
-                    <span></span>
-                    <span></span>
-                    </span></td>
-                </tr>
-                <tr class="to-read">
-                    <td>Little Women</td>
-                    <td>L.M. Alcott</td>
-                    <td>Fiction</td>
-                    <td><span class="status">To Read</span></td>
-                    <td><span class="rate">
                     <span></span>
                     <span></span>
                     <span></span>
                     </span></td>
                 </tr>
-                <tr class="in-progress">
-                    <td>The Savage City</td>
-                    <td>T.J. English</td>
-                    <td>Non-Fiction</td>
-                    <td><span class="status">In Progress</span></td>
-                    <td><span class="rate">
+                <tr class="white-wine">
+                    <td>Pinot Grigio</td>
+                    <td>United States</td>
+                    <td>Silvertree</td>
+                    <td>2019</td>
+                    <td><span class="rate four">
+                    <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     </span></td>
                 </tr>
-                <tr class="in-progress">
-                    <td>Infinite Jest</td>
-                    <td>D.F. Wallace</td>
-                    <td>Fiction</td>
-                    <td><span class="status">In Progress</span></td>
-                    <td><span class="rate">
+                <tr class="red-wine">
+                    <td>Malbec</td>
+                    <td>Argentina</td>
+                    <td>Manos Negras</td>
+                    <td>2023</td>
+                    <td><span class="rate four">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+                <tr class="red-wine">
+                    <td>Bordeaux</td>
+                    <td>France</td>
+                    <td>Merci Noir</td>
+                    <td>2017</td>
+                    <td><span class="rate three">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+                <tr class="white-wine">
+                    <td>Chardonnay</td>
+                    <td>Chile</td>
+                    <td>El Tres</td>
+                    <td>2020</td>
+                    <td><span class="rate three">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span></td>
+                </tr>
+                <tr class="red-wine">
+                    <td>Shiraz</td>
+                    <td>Australia</td>
+                    <td>Queensland Premier</td>
+                    <td>2015</td>
+                    <td><span class="rate four">
+                    <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
