@@ -49,28 +49,39 @@
             background-color: #d5c3cf;
             width: 100%;
             grid-area: gallery;
+            padding-bottom: 2%;
         }
 
         .photo {
-            display: flex;
-            flex-direction: row;
+            display: inline-block;
             height: 120px;
             width: 200px;
             border-radius: 10%;
             background-color: #ffffee;
             box-sizing: border-box;
-            transition: 1s ease-in-out;
+            
         }
 
-        .photo:hover {
-            transform: scale(300%);
+        .photo > img:hover {
+            transform: scale(250%);
             z-index: 1;
         }
 
         .photo > img {
             width: 100%;
+            height: 100%;
+            margin: 0;
             border-radius: 5%;
+            transition: 1s ease-in-out;
         }
+
+        .photo > figcaption {
+            font-size: .7em;
+            background-color: #d5c3cf;
+            margin: 0;
+            color: #331832;
+        }
+
         @media (max-width: 750px) {
             main {
                 grid-template-areas: 'header-two logo''invitation invitation''gallery gallery';
@@ -95,15 +106,19 @@
             </figure>
             <figure class="photo">
                 <img src="./images/lobby-hotel-is-decorated-with-stone-wall-large-rock-wall_815143-492.avif" alt="Large Stone Wall">
+                <figcaption>Designed by <a href="https://www.freepik.com">Freepik</a></figcaption>
             </figure>
             <figure class="photo">
                 <img src="./images/flintstone-house-exterior.jpeg" alt="Sabertooth Lodge Cabin Exterior">
+                <figcaption>Copyright &copy; 2012 <a href="https://www.efgidley.com/">Everett Fenton Gidley</a></figcaption>
             </figure>
             <figure class="photo">
                 <img src="./images/flinstones-house-kitchen.jpg" alt="Sabertooth Lodge Cabin Kitchen">
+                <figcaption>Copyright &copy; 2012 <a href="https://www.efgidley.com/">Everett Fenton Gidley</a></figcaption>
             </figure>
             <figure class="photo">
                 <img src="./images/flintstone-house-interior.jpeg" alt="View from the Cabin">
+                <figcaption>Copyright &copy; 2012 <a href="https://www.efgidley.com/">Everett Fenton Gidley</a></figcaption>
             </figure>
         </div>
     </main>
