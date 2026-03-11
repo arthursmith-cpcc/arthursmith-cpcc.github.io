@@ -9,60 +9,144 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        main {
+            display: grid;
+            grid-template-areas: 'header-two header-two logo''navbar main-section main-section';
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+        main > img {
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+            grid-area: logo;
+            transform: scale(60%);
+            border-radius: 15%;
+        }
+        h2 {
+            grid-area: header-two;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+        }
+        #navbar {
+            grid-area: navbar;
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            color: #331832;
+            position: fixed;
+            top: 55vh;
+            left: 10vw;
+        }
+
+        #navbar > a {
+            box-sizing: border-box;
+            border-bottom: 2px solid #331832;
+            height: 2em;
+            padding-top: .25em;
+        }
+        .main-section {
+            grid-area: main-section;
+        }
+        footer {
+            text-align: center;
+        }
+
+        @media (max-width: 1000px) {
+            
+            #navbar {
+                left: 4vw;
+            }
+            footer {
+                text-align: right;
+                margin-left: 50vw;
+            }
+        }
+        @media (max-width: 780px) {
+            main {
+                grid-template-areas: 'header-two logo''navbar main-section';
+                grid-template-columns: 1fr 1fr;
+            }
+            #navbar {
+                left: 2vw;
+            }
+            .main-section {
+                width: 50vw;
+            }
+        }
+    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
     <main>
-        <h2>
-            Instructions
-        </h2>
+        <h2>Instructions</h2>
+        <img src="./images/saber-tooth.svg" alt="Sabertooth Lodge Logo">
         <nav id="navbar">
-        <h3>Tech Doc Page</h3>
-        <a class="nav-link" href="#overview">Overview</a>
-        <a class="nav-link" href="#setup">Setup</a>
-        <a class="nav-link" href="#options">Options</a>
-        <a class="nav-link" href="#advanced">Advanced</a>
-        <a class="nav-link" href="#settings">Settings</a>
+        <h3>About the Sabertooth Lodge</h3>
+        <a class="nav-link" href="#top">Overview</a>
+        <a class="nav-link" href="#pre-history">Pre-History</a>
+        <a class="nav-link" href="#oneness">Oneness with Nature</a>
+        <a class="nav-link" href="#peace">Peaceful Coexistence</a>
+        <a class="nav-link" href="#self">Self-Sufficiency</a>
+        <a class="nav-link" href="#restoration">Restoration</a>
         </nav>
-        <section class="main-section" id="overview">
-            <h3>Overview</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <ul>
-            <li>Lorem ipsum</li>
-            <li>Dolor sit</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
-        <section class="main-section" id="setup">
-            <h3>Setup</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <code>double count = keyboard.getDouble();</code>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <code>for (i = 0; i &lt; count; i++)</code>
-            <br>
-        </section>
-        <section class="main-section" id="options">
-            <h3>Options</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <code>while (count == 10) {}</code>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <ul>
-            <li>Ut enim ad minim</li>
-            <li>Duis aute irure dolor</li>
-            <li>Excepteur sint occaecat</li>
-            </ul>
-        </section>
-        <section class="main-section" id="advanced">
-            <h3>Advanced</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <code>string latin = "mollit anim id est laborum";</code>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
-        <section class="main-section" id="settings">
-            <h3>Settings</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <code>int main void(string[] args) {}</code>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <section class="main-section">
+            <div id="overview">
+                <h3>Overview</h3>
+                <p>Founded in 1924, the Sabertooth Lodge is the realization of a decades long dream originally conceived by our founder, Dr. H. Elmer Tate, when he was only 12 years old. Our goal is to provide all of our guests with a return to their pre-historic roots, with a few modern amenities added, no matter how short or lengthy their stay with us happens to be.
+                <br><br>
+                Like our founder, we strive to abide by the 4 tenets of harmonious living established in the lodge’s charter:</p>
+                <ul>
+                <li>Oneness with Nature</li>
+                <li>Peaceful Coexistence</li>
+                <li>Self-Sufficiency</li>
+                <li>Restoration</li>
+                </ul>
+                <p>We hope that you leave our establishment with a renewed sense of connection to the pre-historic land that birthed us.</p>
+            </div>
+            <div id="pre-history">
+                <h3>Pre-History</h3>
+                <p>In 1895, when he was only 10 years old, H. Elmer Tate began what was to be a life-long association with the Dino Scouts of the Eastern Midwest. Over the next two summers, Dr. Tate found himself swept away with what he learned about life in various pre-historic periods. As he looked around at the world as it existed during his time, he wondered if a return to pre-historic values would salve many of the ills faced by mankind. This became the thesis for his dream of a place outside of time wherein, even if only for a day or two, guests could return to a simpler way of living.
+                <br><br>
+                Dr. Tate’s resolve to bring this dream to reality was solidified during his tour of duty in the Great War. He returned home with renewed zeal and vigor and opened the first Sabertooth Lodge a few years later. It was in the lead up to this opening that Dr. Tate wrote the lodge’s charter. This charter served as a guide for Dr. Tate and all who have followed in his footsteps in guiding the lodge’s mission over the past century. The vision detailed within the charter can be summed up in its 4 Tenets for Harmonious Living &mdash; Oneness with Nature; Peaceful Coexistence; Self-Sufficiency; and Restoration.</p>
+            </div>
+            <div id="oneness">
+                <h3>Oneness with Nature</h3>
+                <blockquote>"To be at one with nature is to be in harmony with oneself. To be at harmony with oneself is to embrace the universe." &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul>
+                <li>Ut enim ad minim</li>
+                <li>Duis aute irure dolor</li>
+                <li>Excepteur sint occaecat</li>
+                </ul>
+            </div>
+            <div id="peace">
+                <h3>Peaceful Coexistence</h3>
+                <blockquote>"" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <code>string latin = "mollit anim id est laborum";</code>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="self">
+                <h3>Self-Sufficiency</h3>
+                <blockquote>"" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <code>int main void(string[] args) {}</code>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="restoration">
+                <h3>Restoration</h3>
+                <blockquote>"" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <code>int main void(string[] args) {}</code>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
         </section>
     </main>
     <div data-include="./components/footer.html"></div>
