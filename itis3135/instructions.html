@@ -24,7 +24,7 @@
         main > img {
             background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
             grid-area: logo;
-            transform: scale(60%);
+            width: 200px;
             border-radius: 15%;
         }
         h2 {
@@ -53,6 +53,10 @@
         .main-section {
             grid-area: main-section;
         }
+        div > p {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
         footer {
             text-align: center;
         }
@@ -65,18 +69,27 @@
             footer {
                 text-align: right;
                 margin-left: 50vw;
+                padding-right: 2vw;
             }
         }
         @media (max-width: 780px) {
             main {
                 grid-template-areas: 'header-two logo''navbar main-section';
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: .75fr 1.25fr;
+            }
+
+            main > img {
+                margin-left: 20vw;
             }
             #navbar {
+                flex-wrap: wrap;
                 left: 2vw;
+                width: 30vw;
+                min-width: 160px;
             }
+
             .main-section {
-                width: 50vw;
+                width: 62vw;
             }
         }
     </style>
@@ -118,34 +131,26 @@
             <div id="oneness">
                 <h3>Oneness with Nature</h3>
                 <blockquote>"To be at one with nature is to be in harmony with oneself. To be at harmony with oneself is to embrace the universe." &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <ul>
-                <li>Ut enim ad minim</li>
-                <li>Duis aute irure dolor</li>
-                <li>Excepteur sint occaecat</li>
-                </ul>
+                <p>The concept of oneness with nature encompasses how we perceive our relationship with the natural world. Rather than viewing nature as a resource to be extracted or a backdrop to human civilization, this tenet embraces the understanding that humans are integral parts of ecological systems. Oneness suggests recognizing our interdependence &mdash; that harming ecosystems ultimately harms ourselves &mdash; and, therefore, encourages decision-making that considers the wellbeing of all living systems, not just immediate human profit or convenience.</p>
             </div>
             <div id="peace">
                 <h3>Peaceful Coexistence</h3>
-                <blockquote>"" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <code>string latin = "mollit anim id est laborum";</code>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <blockquote>"Think of the vastness of the universe, then reflect on our miniscule place within it. Do you now understand the absurdity of being given the choice to either harm or help another person and choosing the former?" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>Peaceful coexistence extends beyond the absence of conflict to embrace active cooperation and mutual respect. This tenet acknowledges that our world contains competing interests and limited resources, yet recognizes that violence, domination, and exploitation ultimately fail as long-term strategies. Instead, peaceful coexistence calls for dialogue, compromise, and systems designed so that one group's gain doesn't require another's loss. It means addressing inequality and injustice, because lasting peace requires fairness. It's about building trust through transparency and accountability, recognizing that sustainable success comes from relationships where all parties feel respected and heard.</p>
             </div>
             <div id="self">
                 <h3>Self-Sufficiency</h3>
-                <blockquote>"" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <code>int main void(string[] args) {}</code>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <blockquote>"When we live in harmonious entanglement with nature and with one another, then we unlock all the glorious bounty the universe has to offer." &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>Self-sufficiency emphasizes resilience, independence, and the capacity to meet one's own needs without creating unhealthy dependencies. This tenet values local capacity-building and empowerment and recognizes that communities and organizations are strongest when they can sustain themselves through their own resources, knowledge, and capabilities.
+                <br><br>
+                Self-sufficiency doesn't mean complete isolation or rejecting collaboration &mdash; rather, it means building systems and capabilities that reduce vulnerability and promote autonomy. This may involve local food production, renewable energy systems, and skill-sharing networks.
+                <br><br>
+                This tenet also speaks to resilience in the face of disruption. Self-sufficient systems are more adaptable because they're not entirely reliant on fragile global supply chains or external support. They can weather many crises because they have redundancy and local capacity. Additionally, self-sufficiency promotes dignity and agency; people who can meet their own needs have greater autonomy and self-determination than those dependent on others' goodwill.</p>
             </div>
             <div id="restoration">
                 <h3>Restoration</h3>
-                <blockquote>"" &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <code>int main void(string[] args) {}</code>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <blockquote>"When you have sown and reaped and seen good for all your hard work, stop. Take time to reflect and to reinvigorate yourself for the work to come." &mdash; <cite>Dr. H. Elmer Tate</cite>, Sabertooth Lodge Charter</blockquote>
+                <p>The restoration tenet is fundamentally hopeful. It is found within the liminal space between the work that has been accomplished and the work that is yet to have begun. The time of restoration is a time of rest, of rejoicing, and of expressing appreciation. It may also be a time of recovery of things sacrificed &mdash; physical, emotional, spiritual &mdash; in pursuit of accomplished goals.</p>
             </div>
         </section>
     </main>

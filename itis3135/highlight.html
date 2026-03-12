@@ -9,26 +9,97 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        main {
+            display: grid;
+            grid-template-areas: 'header-two header-two logo''form form navbar''video video navbar''packages packages navbar';
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+        main > img {
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%);
+            grid-area: logo;
+            width: 200px;
+            border-radius: 15%;
+        }
+
+        main > nav {
+            grid-area: navbar;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            position: fixed;
+            right: 300px;
+            top: 50vh;
+        }
+        main > form {
+            grid-area: form;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            justify-content: space-evenly;
+            height: 150px;
+        }
+        #email {
+            width: 250px;
+        }
+        button {
+            border: none;
+            width: 105px;
+            height: 2em;
+            font-size: 1.25em;
+            text-align: center;
+            color: #ddd;
+            margin: 4px;
+            border-radius: 8%;
+            background: linear-gradient(-45deg, white, #cedfcd 15%, black 50%, #d5c3cf 95%)
+        }
+        button:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        main > #video {
+            grid-area: video;
+        }
+        h2 {
+            grid-area: header-two;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;    
+        }
+        #packages {
+            grid-area: packages;
+        }
+    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
     <main>
-        <h2>
-            Highlight
-        </h2>
-        <img id="header-img" src="http://www.w3.org/2000/svg">
-        <nav id="nav-bar">
-            <a class="nav-link" href="#form">Form</a>
-            <a class="nav-link" href="#submit">Submit</a>
+        <h2>Highlight</h2>
+        <img src="./images/saber-tooth.svg" alt="Sabertooth Lodge Logo">
+        <nav id="navbar">
+            <a class="nav-link" href="#top">Form</a>
             <a class="nav-link" href="#video">Video</a>
+            <a class="nav-link" href="#packages">Packages</a>
         </nav>
-        <section>
-            <form id="form" action="https://www.freecodecamp.org/email-submit">
-                <input id="email" type="email" name="email" placeholder="email@mail.com">
-                <input id="submit" type="submit">
-            </form>
-            <video id="video" src="https://www.youtube.com/watch?v=-XNFNcuRGEM"></video>
-        </section>
+        <form id="form">
+            <label for="email">Sign up to be added to the waitlist for one of our limited wilderness adventures!</label>
+            <input id="email" type="email" name="email" placeholder="email@mail.com">
+            <button id="submit" type="submit">Submit</button>
+        </form>        
+        <div id="video">
+            <p>Watch this video for more information about the adventure!</p>
+            <iframe width="700" height="393" src="https://player.vimeo.com/video/136407099?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479">
+            </iframe>
+        </div>
+        <div id="packages">
+        </div>
     </main>
     <div data-include="./components/footer.html"></div>
     <script src="./scripts/include.min.js"></script>

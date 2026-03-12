@@ -2,8 +2,12 @@ body {
     background-color: #cedfcd;
     font-family: "Roboto", sans-serif;
     max-width: 1000px;
-    margin: auto;
-    padding: 1%;
+    margin: 0 auto;
+}
+header {
+    background-color: #cedfcd;
+    margin-top: 0;
+    box-sizing: border-box;
 }
 
 h1 {
