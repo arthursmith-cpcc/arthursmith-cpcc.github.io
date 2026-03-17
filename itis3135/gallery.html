@@ -73,6 +73,7 @@
             margin: 0;
             border-radius: 5%;
             transition: 1s ease-in-out;
+            object-fit: cover;
         }
 
         .photo > figcaption {
@@ -87,7 +88,7 @@
                 grid-template-areas: 'header-two logo''invitation invitation''gallery gallery';
                 grid-template-columns: 1fr 1fr;
             }
-            .photo:hover {
+            .photo > img:hover {
                 transform: scale(125%);
                 z-index: 3;
             }
@@ -102,23 +103,23 @@
         <p>See our lodge for yourself!</p>
         <div id="photo-gallery">
             <figure class="photo">
-                <img src="./images/flinstones-hotel-lobby.jpg" alt="Sabertooth Lodge lobby">
+                <img src="./images/exterior.jpg" alt="Sabertooth Lodge Exterior">
             </figure>
             <figure class="photo">
-                <img src="./images/lobby-hotel-is-decorated-with-stone-wall-large-rock-wall_815143-492.avif" alt="Large Stone Wall">
-                <figcaption>Designed by <a href="https://www.freepik.com">Freepik</a></figcaption>
+                <img src="./images/gate-by-Luke-Shaw.jpg" alt="Sabertooth Lodge Entrance Gate">
+                <figcaption><a href="https://www.geograph.org.uk/photo/7516302">Photo</a> &copy; Copyright <a href="https://www.geograph.org.uk/profile/129268">Luke Shaw</a> | <a href="http://creativecommons.org/licenses/by-sa/2.0/">(cc-by-sa/2.0)</a> Creative Commons License.</figcaption>
             </figure>
             <figure class="photo">
-                <img src="./images/flintstone-house-exterior.jpeg" alt="Sabertooth Lodge Cabin Exterior">
-                <figcaption>Copyright &copy; 2012 <a href="https://www.efgidley.com/">Everett Fenton Gidley</a></figcaption>
+                <img src="./images/backlot-by-Marathon.jpg" alt="Sabertooth Lodge Back Lot">
+                <figcaption><a href="https://www.geograph.org.uk/photo/7594554">Photo</a> &copy; Copyright <a href="https://www.geograph.org.uk/profile/43806">Marathon</a> | <a href="http://creativecommons.org/licenses/by-sa/2.0/">(cc-by-sa/2.0)</a> Creative Commons License.</figcaption>
             </figure>
             <figure class="photo">
-                <img src="./images/flinstones-house-kitchen.jpg" alt="Sabertooth Lodge Cabin Kitchen">
-                <figcaption>Copyright &copy; 2012 <a href="https://www.efgidley.com/">Everett Fenton Gidley</a></figcaption>
+                <img src="./images/stone_art.jpg" alt="Sabertooth Lodge Stone Art Installation">
+                <figcaption><a href="https://www.flickr.com/photos/slrjester/289603054/">Photo</a> &copy; Copyright <a href="https://www.flickr.com/photos/slrjester/">SLR Jester</a> | <a href="https://creativecommons.org/licenses/by/2.0/deed.en">Creative Commons License 2.0 Generic Deed</a></figcaption>
             </figure>
             <figure class="photo">
-                <img src="./images/flintstone-house-interior.jpeg" alt="View from the Cabin">
-                <figcaption>Copyright &copy; 2012 <a href="https://www.efgidley.com/">Everett Fenton Gidley</a></figcaption>
+                <img src="./images/green-hotel.jpg" alt="Sabertooth Lodge Second Exterior Shot">
+                <figcaption></figcaption>
             </figure>
         </div>
     </main>
