@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <title>Arthur Smith's Ancient Sabertooth | ITIS3135 | Introduction Form</title>
+    <style>
+        form {
+            background-color: #d5c3cf;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .optional {
+            font-weight: normal;
+            color: #666;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="file"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+        .form-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        .form-section:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .course-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr auto;
+            gap: 15px;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        .course-row label {
+            margin-bottom: 5px;
+        }
+        .course-row input[type="text"] {
+            margin: 0;
+        }
+        .course-row .form-group {
+            margin-bottom: 0;
+        }
+        .add-course-btn {
+            background-color: #2196F3;
+            padding: 10px 15px;
+            font-size: 18px;
+            height: fit-content;
+        }
+        .add-course-btn:hover {
+            background-color: #0b7dda;
+        }
+        .remove-course-btn {
+            background-color: #f44336;
+            padding: 10px 15px;
+            font-size: 18px;
+            height: fit-content;
+            margin: 0;
+        }
+        .remove-course-btn:hover {
+            background-color: #da190b;
+        }
+        .course-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .course-container {
+            margin-bottom: 20px;
+        }
+        .course-number-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div data-include="./components/header.html"></div>
+<main>
+<h2>Introduction Form</h2>
+    <form>
+        <!-- Personal Information Section -->
+        <div class="form-section">
+            <div class="section-title">Personal Information</div>
+            
+            <div class="form-group">
+                <label for="firstName">First Name <span class="required">*</span></label>
+                <input type="text" id="firstName" name="firstName" value="Arthur" required>
+            </div>
+
+            <div class="form-group">
+                <label for="middleName">Middle Name or Initial <span class="optional">(optional)</span></label>
+                <input type="text" id="middleName" name="middleName">
+            </div>
+
+            <div class="form-group">
+                <label for="nickname">Nickname or Preferred Name <span class="optional">(optional)</span></label>
+                <input type="text" id="nickname" name="nickname">
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name <span class="required">*</span></label>
+                <input type="text" id="lastName" name="lastName" value="Smith" required>
+            </div>
+
+            <div class="form-group">
+                <label for="acknowledgmentStatement">Acknowledgment Statement <span class="required">*</span></label>
+                <textarea id="acknowledgmentStatement" name="acknowledgmentStatement" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="acknowledgmentDate">Acknowledgement Date <span class="required">*</span></label>
+                <input type="date" id="acknowledgmentDate" name="acknowledgmentDate" required>
+            </div>
+        </div>
+
+        <!-- Mascot Section -->
+        <div class="form-section">
+            <div class="section-title">Mascot Information</div>
+            
+            <div class="form-group">
+                <label for="mascotAdjective">Mascot Adjective <span class="required">*</span></label>
+                <input type="text" id="mascotAdjective" name="mascotAdjective" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mascotAnimal">Mascot Animal <span class="required">*</span></label>
+                <input type="text" id="mascotAnimal" name="mascotAnimal" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dividerSymbol">Divider Symbol <span class="required">*</span></label>
+                <input type="text" id="dividerSymbol" name="dividerSymbol" required>
+            </div>
+        </div>
+
+        <!-- Picture Section -->
+        <div class="form-section">
+            <div class="section-title">Picture</div>
+            
+            <div class="form-group">
+                <label for="picture">Picture <span class="required">*</span></label>
+                <input type="file" id="picture" name="picture" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pictureCaption">Picture Caption <span class="required">*</span></label>
+                <input type="text" id="pictureCaption" name="pictureCaption" required>
+            </div>
+        </div>
+
+        <!-- Personal Statement Section -->
+        <div class="form-section">
+            <div class="section-title">Personal Statement</div>
+            
+            <div class="form-group">
+                <label for="personalStatement">Personal Statement <span class="required">*</span></label>
+                <textarea id="personalStatement" name="personalStatement" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="personalBackground">Personal Background <span class="required">*</span></label>
+                <textarea id="personalBackground" name="personalBackground" required></textarea>
+            </div>
+        </div>
+
+        <!-- Course Information Section -->
+        <div class="form-section">
+            <div class="section-title">Course Information</div>
+            <div id="coursesContainer"></div>
+            <button type="button" class="add-course-btn" id="addCourseBtn">+ Add Course</button>
+        </div>
+
+        <!-- Quote Section -->
+        <div class="form-section">
+            <div class="section-title">Quote</div>
+            
+            <div class="form-group">
+                <label for="quote">Quote <span class="required">*</span></label>
+                <textarea id="quote" name="quote" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="quoteAuthor">Quote author <span class="required">*</span></label>
+                <input type="text" id="quoteAuthor" name="quoteAuthor" required>
+            </div>
+        </div>
+
+        <!-- Additional Information Section -->
+        <div class="form-section">
+            <div class="section-title">Additional Information</div>
+            
+            <div class="form-group">
+                <label for="funnyThing">Funny thing <span class="optional">(optional)</span></label>
+                <textarea id="funnyThing" name="funnyThing"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="shareStatement">Something I would like to share <span class="optional">(optional)</span></label>
+                <textarea id="shareStatement" name="shareStatement"></textarea>
+            </div>
+        </div>
+
+        <!-- Footer Links Section -->
+        <div class="form-section">
+            <div class="section-title">Footer Links</div>
+            
+            <div class="form-group">
+                <label for="footerLink1">Footer Link 1 <span class="required">*</span></label>
+                <input type="text" id="footerLink1" name="footerLink1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink1Text">Footer Link 1 Text <span class="required">*</span></label>
+                <input type="text" id="footerLink1Text" name="footerLink1Text" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink2">Footer Link 2 <span class="required">*</span></label>
+                <input type="text" id="footerLink2" name="footerLink2" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink2Text">Footer Link 2 Text <span class="required">*</span></label>
+                <input type="text" id="footerLink2Text" name="footerLink2Text" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink3">Footer Link 3 <span class="required">*</span></label>
+                <input type="text" id="footerLink3" name="footerLink3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink3Text">Footer Link 3 Text <span class="required">*</span></label>
+                <input type="text" id="footerLink3Text" name="footerLink3Text" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink4">Footer Link 4 <span class="required">*</span></label>
+                <input type="text" id="footerLink4" name="footerLink4" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink4Text">Footer Link 4 Text <span class="required">*</span></label>
+                <input type="text" id="footerLink4Text" name="footerLink4Text" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink5">Footer Link 5 <span class="required">*</span></label>
+                <input type="text" id="footerLink5" name="footerLink5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="footerLink5Text">Footer Link 5 Text <span class="required">*</span></label>
+                <input type="text" id="footerLink5Text" name="footerLink5Text" required>
+            </div>
+        </div>
+
+        <button type="button" id="clearFormBtn">Clear Form</button>
+        <button type="submit">Submit</button>
+
+    </form>
+    <script id="courseCount">
+        let courseCount = 0;
+
+        function createCourseRow(courseNumber) {
+            const courseRow = document.createElement('div');
+            courseRow.className = 'course-container';
+            courseRow.id = `course-${courseNumber}`;
+            
+            const isFirstCourse = courseNumber === 1;
+            
+            let html = '';
+            
+            html += `<span class="course-number-label">Course ${courseNumber}</span>`;
+            
+            html += `
+                <div class="course-row">
+                    <div class="form-group">
+                        <label for="courseDepartment${courseNumber}">Department <span class="required">*</span></label>
+                        <input type="text" id="courseDepartment${courseNumber}" name="courseDepartment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseNumber${courseNumber}">Number <span class="required">*</span></label>
+                        <input type="text" id="courseNumber${courseNumber}" name="courseNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseName${courseNumber}">Name <span class="required">*</span></label>
+                        <input type="text" id="courseName${courseNumber}" name="courseName" required>
+                    </div>
+                    <div class="course-actions">
+                        ${!isFirstCourse ? `<button type="button" class="remove-course-btn" onclick="removeCourse(${courseNumber})">−</button>` : ''}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reasonForCourse${courseNumber}">Reason for taking this course <span class="required">*</span></label>
+                    <textarea id="reasonForCourse${courseNumber}" name="reasonForCourse" required></textarea>
+                </div>
+            `;
+            
+            courseRow.innerHTML = html;
+            return courseRow;
+        }
+
+        function addCourse() {
+            courseCount++;
+            const coursesContainer = document.getElementById('coursesContainer');
+            const newCourseRow = createCourseRow(courseCount);
+            coursesContainer.appendChild(newCourseRow);
+        }
+
+        function removeCourse(courseNumber) {
+            const courseElement = document.getElementById(`course-${courseNumber}`);
+            if (courseElement) {
+                courseElement.remove();
+            }
+        }
+
+        // Initialize with first course
+        document.addEventListener('DOMContentLoaded', function() {
+            addCourse();
+            addCourse();
+            addCourse();
+            
+            document.getElementById('addCourseBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                addCourse();
+            });
+        });
+    </script>
+    <script id="clearForm">
+        function clearForm() {
+            // Clear all text inputs and textareas
+            document.querySelectorAll('input[type="text"], textarea').forEach(field => {
+                field.value = '';
+            });
+            
+            // Clear date inputs
+            document.querySelectorAll('input[type="date"]').forEach(field => {
+                field.value = '';
+            });
+            
+            // Clear file inputs
+            document.querySelectorAll('input[type="file"]').forEach(field => {
+                field.value = '';
+            });
+            
+            // Remove all courses except the first 3
+            const coursesContainer = document.getElementById('coursesContainer');
+            const courseElements = coursesContainer.querySelectorAll('.course-container');
+            
+            // Keep first 3 courses but clear their values
+            courseElements.forEach((course, index) => {
+                if (index < 3) {
+                    course.querySelectorAll('input[type="text"], textarea').forEach(field => {
+                        field.value = '';
+                    });
+                } else {
+                    course.remove();
+                }
+            });
+            
+            // Reset course count
+            courseCount = 3;
+        }
+
+        // Add event listener to clear button
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.getElementById('addCourseBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                addCourse();
+            });
+            
+            document.getElementById('clearFormBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                clearForm();
+            });
+        });
+    </script>
+</main>
+<div data-include="./components/footer.html"></div>
+<script src="./scripts/include.min.js"></script>
+</body>
+</html>
