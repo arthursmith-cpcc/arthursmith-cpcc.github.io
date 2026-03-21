@@ -20,9 +20,15 @@ function displayFormAsJSON() {
     };
     
     // Picture
+    const pictureInput = document.getElementById('picture');
+    let pictureFile = '';
+    if (pictureInput && pictureInput.files && pictureInput.files.length > 0) {
+        pictureFile = pictureInput.files[0].name;
+    }
+    
     formData.picture = {
         caption: document.getElementById('pictureCaption').value,
-        file: document.getElementById('picture').dataset.file || ''
+        file: pictureFile || 'default: /images/carolina_beach_2013.jpg'
     };
     
     // Personal Statement

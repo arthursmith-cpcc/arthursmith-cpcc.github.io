@@ -137,26 +137,137 @@ function generateIntroductionPreview() {
     const result = buildIntroductionHTML();
     const previewContainer = document.getElementById('introductionPreviewContainer');
     
-    // Create a styled wrapper for the preview content
+    // Create a styled wrapper for the preview content with default.css styles applied
     const previewHTML = `
-        <div style="background-color: white; padding: 20px; border-radius: 8px;">
-            <header style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 20px;">
+        <style>
+            .preview-wrapper {
+                background-color: #b7d4e1;
+                padding: 10px;
+                border-radius: 8px;
+                font-family: "Jost", sans-serif;
+            }
+            .preview-wrapper header {
+                background-color: #a8c686;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-bottom: 20px;
+            }
+            .preview-wrapper h1 {
+                font-family: "PT Serif", serif;
+                color: #0d1b1e;
+                font-size: 40px;
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+            .preview-wrapper h2 {
+                font-family: "Quicksand", sans-serif;
+                font-size: 35px;
+                padding-left: 10px;
+                padding-right: 10px;
+                color: #0d1b1e;
+            }
+            .preview-wrapper h3 {
+                font-family: "Quicksand", sans-serif;
+                font-size: 3rem;
+                color: #0d1b1e;
+            }
+            .preview-wrapper header nav {
+                font-family: "Jost", sans-serif;
+            }
+            .preview-wrapper header nav a:link,
+            .preview-wrapper header nav a:visited {
+                color: #0d1b1e;
+                text-decoration: none;
+            }
+            .preview-wrapper header nav a:hover {
+                color: #853b28;
+                text-decoration: underline;
+            }
+            .preview-wrapper main {
+                background-color: #b7d4e1;
+                padding: 20px;
+                border-radius: 4px;
+            }
+            .preview-wrapper p {
+                padding-left: 10px;
+                padding-right: 10px;
+                font-family: "Jost", sans-serif;
+                background-color: #b7d4e1;
+                color: #0d1b1e;
+            }
+            .preview-wrapper ul, .preview-wrapper blockquote {
+                font-family: "Jost", sans-serif;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .preview-wrapper ul li {
+                padding-right: 5%;
+            }
+            .preview-wrapper ol li {
+                padding-right: 2%;
+            }
+            .preview-wrapper figure img {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                max-width: 80%;
+            }
+            .preview-wrapper figure figcaption {
+                font-style: italic;
+                contain: inline-size;
+                margin-left: 10%;
+            }
+            .preview-wrapper figure {
+                inline-size: fit-content;
+                margin-inline: auto;
+            }
+            .preview-wrapper footer {
+                background-color: #a8c686;
+                padding: 15px 10px;
+                margin-top: 30px;
+                border-radius: 4px;
+            }
+            .preview-wrapper .footer_nav {
+                background-color: transparent;
+                font-family: "Jost", sans-serif;
+                margin-bottom: 10px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .preview-wrapper footer a:link,
+            .preview-wrapper footer a:visited {
+                color: #0d1b1e;
+                text-decoration: none;
+            }
+            .preview-wrapper footer a:hover {
+                color: #853b28;
+                text-decoration: underline;
+            }
+            .preview-wrapper footer p {
+                margin: 5px 0;
+                padding: 0;
+            }
+        </style>
+        <div class="preview-wrapper">
+            <header>
                 <h1>${result.firstName} ${result.lastName}</h1>
-                <nav style="font-size: 0.9em;">
-                    <a href="#" style="color: #0066cc; text-decoration: none;">Home</a> | <a href="#" style="color: #0066cc; text-decoration: none;">Introduction</a>
+                <nav class="header_nav">
+                    <a href="#">Home</a> | <a href="#">Introduction</a>
                 </nav>
             </header>
             <main>
                 ${result.bodyContent}
             </main>
-            <footer style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #ccc; text-align: center; font-size: 0.9em; color: #666;">
-                <nav style="margin-bottom: 10px;">
+            <footer>
+                <nav class="footer_nav">
                     ${generateFooterLinks()}
                 </nav>
-                <p style="margin: 5px 0;">Copyright &copy; 2026 | Page created by ${result.firstName} ${result.lastName}</p>
             </footer>
+            <p>Copyright &copy; 2026 | Page created by ${result.firstName} ${result.lastName}</p>
+            <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
         </div>
     `;
+    
     
     previewContainer.innerHTML = previewHTML;
     
@@ -203,12 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('acknowledgmentDate').defaultValue = '2026-01-13';
 
-    document.getElementById('picture').defaultValue = '/images/carolina_beach_2013.jpg';
 });
-
-/* Prevent page refresh / default behavior
-const formElement = document.getElementById('submitBtn');
-  formElement.addEventListener('submit', function(e) => e.preventDefault()); */
 
 function resetFormWithDefaults() {
     // Default values for all form fields

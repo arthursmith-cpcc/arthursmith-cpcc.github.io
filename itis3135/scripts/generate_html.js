@@ -65,6 +65,29 @@ function displayGeneratedHTML(htmlContent, firstName, lastName) {
     }
 }
 
+function getPictureSource() {
+    const pictureInput = document.getElementById('picture');
+    const defaultPicture = '/images/carolina_beach_2013.jpg';
+    const defaultFilename = '/images/carolina_beach_2013.jpg';
+    
+    // Check if a file has been uploaded
+    if (pictureInput && pictureInput.files && pictureInput.files.length > 0) {
+        const uploadedFilename = pictureInput.files[0].name;
+        
+        // Compare uploaded filename to default filename
+        if (uploadedFilename === defaultFilename) {
+            // If the uploaded file is the same as default, use the default path
+            return defaultPicture;
+        } else {
+            // If it's a different file, create a blob URL for the uploaded file
+            return URL.createObjectURL(pictureInput.files[0]);
+        }
+    }
+    
+    // Fall back to default if no file uploaded
+    return defaultPicture;
+}
+
 function buildIntroductionHTML() {
     // Collect all form data
     const formData = {
@@ -82,7 +105,7 @@ function buildIntroductionHTML() {
         },
         picture: {
             caption: document.getElementById('pictureCaption').value,
-            file: document.getElementById('picture').dataset.file || '/images/carolina_beach_2013.jpg'
+            file: getPictureSource()
         },
         personalStatement: document.getElementById('personalStatement').value,
         personalBackground: document.getElementById('personalBackground').value,
@@ -222,120 +245,6 @@ function buildIntroductionHTML() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background-color: #b7d4e1;
-            max-width: 900px;
-            margin: auto;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-
-        .footer_nav {
-            background-color: #a8c686;
-            font-family: "Jost", sans-serif;
-            margin-bottom: 25px;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        h1 {
-            font-family: "PT Serif", serif;
-            color: #0d1b1e;
-            font-size: 50px;
-            margin-bottom: 5px;    
-        }
-
-        header {
-            margin-top: 25px;
-            background-color: #a8c686;
-            padding-left: 10px;
-            padding-right: 10px;
-            height: 100px;
-        }
-
-        .header_nav {
-            font-family: "Jost", sans-serif;
-            height: 2rem;
-        }
-
-        h2 {
-            font-family: "Quicksand", sans-serif;
-            font-size: 35px;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        ul, blockquote {
-            font-family: Jost, sans-serif;
-        }
-
-        p {
-            padding-left: 10px;
-            padding-right: 10px;
-            font-family: Jost, sans-serif;
-        }
-
-        ul li {
-            padding-right: 5%;
-        }
-
-        ol li {
-            padding-right: 2%;
-        }
-
-        nav a:link {
-            color: #0d1b1e;
-            text-decoration: none;
-        }
-
-        nav a:visited {
-            color: #0d1b1e;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: #853b28;
-            text-decoration: underline;
-        }
-
-        p a:link {
-            color: #0d1b1e;
-            text-decoration: underline;
-        }
-
-        p a:visited {
-            color: #0d1b1e;
-            text-decoration: underline;
-        }
-
-        p a:hover {
-            color: #853b28;
-            text-decoration: underline;
-        }
-
-        figure img{
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            max-width: 80%;
-        }
-
-        figure figcaption {
-            font-style: italic;
-            contain: inline-size;
-            margin-left: 10%;
-        }
-
-        figure {
-            inline-size: fit-content;
-            margin-inline: auto;
-        }
-        h3 {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 3.4rem;
-        }
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
