@@ -1,3 +1,22 @@
+//Picture load on page load or refresh
+document.addEventListener('DOMContentLoaded', function() {
+     const pictureInput = document.getElementById('picture');
+    if (pictureInput) {
+        const myFile = new File(['beachPic'], '/images/carolina_beach_2013.jpg', {
+            type: 'jpg/jpeg',
+            lastModified: new Date()
+        });
+        
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(myFile);
+        pictureInput.files = dataTransfer.files;
+        
+        if (pictureInput.webkitEntries.length) {
+            pictureInput.dataset.file = `${dataTransfer.files[0].name}`;
+        }
+    }
+});
+
 //Course Creation and Form Management
 
 let courseCount = 0;
