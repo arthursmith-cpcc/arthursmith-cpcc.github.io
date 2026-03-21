@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
      const pictureInput = document.getElementById('picture');
     if (pictureInput) {
-        const myFile = new File(['beachPic'], '/images/carolina_beach_2013.jpg', {
+        const myFile = new File(['beachPic'], '/asmit775/images/carolina_beach_2013.jpg', {
             type: 'jpg/jpeg',
             lastModified: new Date()
         });
@@ -432,7 +432,7 @@ function resetFormWithDefaults() {
     // Reset file input
     const pictureInput = document.getElementById('picture');
     if (pictureInput) {
-        const myFile = new File(['beachPic'], '/images/carolina_beach_2013.jpg', {
+        const myFile = new File(['beachPic'], '/asmit775/images/carolina_beach_2013.jpg', {
             type: 'jpg/jpeg',
             lastModified: new Date()
         });

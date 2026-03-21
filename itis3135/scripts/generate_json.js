@@ -28,7 +28,7 @@ function displayFormAsJSON() {
     
     formData.picture = {
         caption: document.getElementById('pictureCaption').value,
-        file: pictureFile || 'default: /images/carolina_beach_2013.jpg'
+        file: pictureFile || 'default: /asmit775/images/carolina_beach_2013.jpg'
     };
     
     // Personal Statement
