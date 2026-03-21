@@ -1,4 +1,4 @@
-function exportFormToJSON() {
+function displayFormAsJSON() {
     // Collect all form data
     const formData = {};
     
@@ -28,7 +28,12 @@ function exportFormToJSON() {
     // Personal Statement
     formData.personalStatement = {
         statement: document.getElementById('personalStatement').value,
-        background: document.getElementById('personalBackground').value
+        background: document.getElementById('personalBackground').value,
+        professionalBackground: document.getElementById('professionalBackground').value,
+        academicBackground: document.getElementById('academicBackground').value,
+        computerScienceBackground: document.getElementById('computerScienceBackground').value,
+        primaryWorkComputer: document.getElementById('primaryWorkComputer').value,
+        backupWorkComputer: document.getElementById('backupWorkComputer').value
     };
     
     // Courses
@@ -85,33 +90,50 @@ function exportFormToJSON() {
     // Convert to JSON string with formatting
     const jsonString = JSON.stringify(formData, null, 2);
     
-    // Create a Blob from the JSON string
-    const blob = new Blob([jsonString], { type: 'application/json' });
+    // Create or get the JSON display container
+    let jsonContainer = document.getElementById('jsonDisplayContainer');
     
-    // Create a temporary download link
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `student-profile-${new Date().toISOString().split('T')[0]}.json`;
+    if (!jsonContainer) {
+        jsonContainer = document.createElement('div');
+        jsonContainer.id = 'jsonDisplayContainer';
+        jsonContainer.style.cssText = `
+            margin-top: 2em;
+            padding: 1.5em;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            max-height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        `;
+        document.getElementById('introForm').appendChild(jsonContainer);
+    }
     
-    // Trigger the download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Display the JSON data
+    jsonContainer.textContent = jsonString;
     
-    // Clean up the URL object
-    URL.revokeObjectURL(url);
+    // Switch to JSON Preview tab
+    if (typeof window.switchToTab === 'function') {
+        window.switchToTab('json-tab');
+    }
     
-    console.log('Form exported to JSON:', formData);
+    // Scroll to the JSON display
+    jsonContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    console.log('Form data displayed as JSON:', formData);
 }
 
-// Add event listener to export button
+// Add event listener to display button
 document.addEventListener('DOMContentLoaded', function() {
-    const exportBtn = document.getElementById('exportJSONBtn');
-    if (exportBtn) {
-        exportBtn.addEventListener('click', function(e) {
+    const displayBtn = document.getElementById('displayJSONBtn');
+    if (displayBtn) {
+        displayBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            exportFormToJSON();
+            displayFormAsJSON();
         });
     }
 });

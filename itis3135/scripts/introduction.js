@@ -112,8 +112,57 @@ function clearForm() {
     courseCount = 3;
 }
 
-//Function to set default file input
+// Helper function to get footer links for preview
+function generateFooterLinks() {
+    let linksHTML = '';
+    for (let i = 1; i <= 5; i++) {
+        const linkElement = document.getElementById(`footerLink${i}`);
+        const textElement = document.getElementById(`footerLink${i}Text`);
+        if (linkElement && textElement && linkElement.value && textElement.value) {
+            linksHTML += `<a href="${linkElement.value}" target="_blank" style="color: #0066cc; text-decoration: none; margin: 0 5px;">${textElement.value}</a>`;
+            if (i < 5) {
+                // Check if next link exists
+                const nextLink = document.getElementById(`footerLink${i + 1}`);
+                if (nextLink && nextLink.value && document.getElementById(`footerLink${i + 1}Text`).value) {
+                    linksHTML += ' | ';
+                }
+            }
+        }
+    }
+    return linksHTML || 'No links added';
+}
 
+// Generate introduction preview and display in preview tab
+function generateIntroductionPreview() {
+    const result = buildIntroductionHTML();
+    const previewContainer = document.getElementById('introductionPreviewContainer');
+    
+    // Create a styled wrapper for the preview content
+    const previewHTML = `
+        <div style="background-color: white; padding: 20px; border-radius: 8px;">
+            <header style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 20px;">
+                <h1>${result.firstName} ${result.lastName}</h1>
+                <nav style="font-size: 0.9em;">
+                    <a href="#" style="color: #0066cc; text-decoration: none;">Home</a> | <a href="#" style="color: #0066cc; text-decoration: none;">Introduction</a>
+                </nav>
+            </header>
+            <main>
+                ${result.bodyContent}
+            </main>
+            <footer style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #ccc; text-align: center; font-size: 0.9em; color: #666;">
+                <nav style="margin-bottom: 10px;">
+                    ${generateFooterLinks()}
+                </nav>
+                <p style="margin: 5px 0;">Copyright &copy; 2026 | Page created by ${result.firstName} ${result.lastName}</p>
+            </footer>
+        </div>
+    `;
+    
+    previewContainer.innerHTML = previewHTML;
+    
+    // Switch to preview tab
+    window.switchToTab('preview-tab');
+}
 
 // Add event listener to add course, submit & clear buttons and to set default acknowledgment date
 document.addEventListener('DOMContentLoaded', function() {
@@ -137,6 +186,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('submitBtn').addEventListener('click', function(e) {
         e.preventDefault();
+        
+        // Get the form element
+        const form = document.getElementById('introForm');
+        
+        // Check if form is valid using HTML5 validation
+        if (form.checkValidity() === false) {
+            e.stopPropagation();
+            alert('Please fill in all required fields before submitting.');
+            return;
+        }
+        
+        // All fields are valid, proceed with preview
+        generateIntroductionPreview();
     });
 
     document.getElementById('acknowledgmentDate').defaultValue = '2026-01-13';
@@ -170,6 +232,11 @@ function resetFormWithDefaults() {
         // Personal Statement
         personalStatement: 'I am a Junior transferring from CPCC working towards a B.A. in Computer Science with a focus in Information Technology. I am planning to use this education to learn much more about, and hopefully make a living in, a field that I have dabbled in and loved for more than two decades.',
         personalBackground: 'I was born and raised in North Carolina and have lived in the Charlotte area since 1999.',
+        professionalBackground: 'Since 2009, I have worked in the Estates Division of the Mecklenburg County Clerk&apos;s office.',
+        academicBackground: 'I have an associates degree in paralegal technology and an associate in arts degree, both from Central Piedmont Community College.',
+        computerScienceBackground: 'I have written or edited HTML documents, bash scripts and Python programs for various personal projects over the years; built PCs and installed their operating systems using Windows, Ubuntu, and Linux Mint; and designed and implemented home hosting and networking solutions.',
+        primaryWorkComputer: 'My primary school computer is an HP laptop with Windows 11. Most of my work on this device will be done at home.',
+        backupWorkComputer: 'As a backup, I can use a home desktop computer or a work laptop.',
         
         // Quote
         quote: 'If your fidelity to perfectionism is too high, you never do anything.',

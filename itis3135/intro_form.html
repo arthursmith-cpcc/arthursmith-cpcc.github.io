@@ -5,10 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/default.css">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <script src="./scripts/introduction.js"></script>
+    <script src="./scripts/generate_html.js"></script>
     <script src="./scripts/generate_json.js"></script>
+    <script src="./scripts/introduction.js"></script>
     <title>Arthur Smith's Ancient Sabertooth | ITIS3135 | Introduction Form</title>
     <style>
+        .content {
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        /* Tab Navigation Styles */
+        .tab-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #9f422d;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: transparent;
+            color: #9f422d;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: rgba(159, 66, 45, 0.1);
+        }
+
+        .tab-btn.active {
+            color: #242e2c;
+            border-bottom-color: #9f422d;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         form {
             background-color: #d5c3cf;
             padding: 30px;
@@ -144,21 +201,69 @@
             margin-bottom: 10px;
             display: block;
         }
-        span.required {
+        .required {
             color: red;
         }
+        
         /* Add pseudo-element only if data attribute is set */
         input[data-file]::after {
         content: attr(data-file);
         margin-left: 0.375em;
     }
+    #jsonDisplayContainer {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .form-section {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 <div data-include="./components/header.html"></div>
 <main>
-<h2>Introduction Form</h2>
-    <h3>Please submit the form below:</h3>
+    <div class="content">
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="form-tab">Form</button>
+            <button class="tab-btn" data-tab="json-tab">JSON Preview</button>
+            <button class="tab-btn" data-tab="html-tab">HTML Preview</button>
+            <button class="tab-btn" data-tab="preview-tab">Introduction Preview</button>
+        </div>
+
+        <!-- Form Tab -->
+        <div id="form-tab" class="tab-content active">
+            <h2>Introduction Form</h2>
+            <h3>Please submit the form below:</h3>
     <form id="introForm" aria-label="Student Profile Form">
         <button type="button" id="clearFormBtn" aria-label="Clear all form fields">Clear Form</button>
         <button type="button" id="resetFormBtn" aria-label="Reset form to default values">Reset</button>
@@ -203,17 +308,17 @@
             
             <div class="form-group">
                 <label for="mascotAdjective">Mascot Adjective <span class="required" aria-label="required">*</span></label>
-                <input type="text" id="mascotAdjective" name="mascotAdjective" value="Ancient" required>
+                <input type="text" id="mascotAdjective" name="mascotAdjective" value="Ancient" placeholder="Ancient" required>
             </div>
 
             <div class="form-group">
                 <label for="mascotAnimal">Mascot Animal <span class="required" aria-label="required">*</span></label>
-                <input type="text" id="mascotAnimal" name="mascotAnimal" value="Sabertooth" required>
+                <input type="text" id="mascotAnimal" name="mascotAnimal" value="Sabertooth" placeholder="Sabertooth" required>
             </div>
 
             <div class="form-group">
                 <label for="dividerSymbol">Divider Symbol <span class="required" aria-label="required">*</span></label>
-                <input type="text" id="dividerSymbol" name="dividerSymbol" value="|" required>
+                <input type="text" id="dividerSymbol" name="dividerSymbol" value="|" placeholder="|" required>
             </div>
         </div>
 
@@ -224,7 +329,7 @@
             <div class="form-group">
                 <label for="picture">Picture <span class="required" aria-label="required">*</span></label>
                 <input type="file" id="picture" name="picture" required>
-                <script>
+                <!--<script>
                     // Get a reference to our file input
                     const fileInput = document.querySelector('input[type="file"]');
 
@@ -242,12 +347,12 @@
                     //Help Safari out
                     if (fileInput.webkitEntries.length) {
                     fileInput.dataset.file = `${dataTransfer.files[0].name}`;}
-                </script>
+                </script>-->
             </div>
 
             <div class="form-group">
                 <label for="pictureCaption">Picture Caption <span class="required" aria-label="required">*</span></label>
-                <input type="text" id="pictureCaption" name="pictureCaption" value="Photo from Carolina Beach c.2013" required>
+                <input type="text" id="pictureCaption" name="pictureCaption" value="Photo from Carolina Beach c.2013" placeholder="Photo from Carolina Beach" required>
             </div>
         </div>
 
@@ -257,12 +362,37 @@
             
             <div class="form-group">
                 <label for="personalStatement">Personal Statement <span class="required" aria-label="required">*</span></label>
-                <textarea id="personalStatement" name="personalStatement" required>I am a Junior transferring from CPCC working towards a B.A. in Computer Science with a focus in Information Technology. I am planning to use this education to learn much more about, and hopefully make a living in, a field that I have dabbled in and loved for more than two decades.</textarea>
+                <textarea id="personalStatement" name="personalStatement" placeholder="Add a personal statement here." required>I am a Junior transferring from CPCC working towards a B.A. in Computer Science with a focus in Information Technology. I am planning to use this education to learn much more about, and hopefully make a living in, a field that I have dabbled in and loved for more than two decades.</textarea>
             </div>
 
             <div class="form-group">
                 <label for="personalBackground">Personal Background <span class="required" aria-label="required">*</span></label>
-                <textarea id="personalBackground" name="personalBackground" required>I was born and raised in North Carolina and have lived in the Charlotte area since 1999.</textarea>
+                <textarea id="personalBackground" name="personalBackground" placeholder="Describe your personal background." required>I was born and raised in North Carolina and have lived in the Charlotte area since 1999.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="professionalBackground">Professional Background <span class="required" aria-label="required">*</span></label>
+                <textarea id="professionalBackground" name="professionalBackground" placeholder="Describe your professional background." required>Since 2009, I have worked in the Estates Division of the Mecklenburg County Clerk's office.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="academicBackground">Academic Background <span class="required" aria-label="required">*</span></label>
+                <textarea id="academicBackground" name="academicBackground" placeholder="Describe your academic background." required>I have an associates degree in paralegal technology and an associate in arts degree, both from Central Piedmont Community College</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="computerScienceBackground">Background in Computer Science <span class="required" aria-label="required">*</span></label>
+                <textarea id="computerScienceBackground" name="computerScienceBackground" placeholder="Describe your background in computer science." required>I have written or edited HTML documents, bash scripts and Python programs for various personal projects over the years; built PCs and installed their operating systems using Windows, Ubuntu, and Linux Mint; and designed and implemented home hosting and networking solutions.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="primaryWorkComputer">Primary Work Computer & Location <span class="required" aria-label="required">*</span></label>
+                <textarea id="primaryWorkComputer" name="primaryWorkComputer" placeholder="Describe your primary work computer and its location." required>My primary school computer is an HP laptop with Windows 11. Most of my work on this device will be done at home.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="backupWorkComputer">Backup Work Computer & Location Plan <span class="required" aria-label="required">*</span></label>
+                <textarea id="backupWorkComputer" name="backupWorkComputer" placeholder="Describe your backup work computer and its location plan." required>As a backup, I can use a home desktop computer or a work laptop.</textarea>
             </div>
         </div>
 
@@ -279,12 +409,12 @@
             
             <div class="form-group">
                 <label for="quote">Quote <span class="required" aria-label="required">*</span></label>
-                <textarea id="quote" name="quote" required>If your fidelity to perfectionism is too high, you never do anything.</textarea>
+                <textarea id="quote" name="quote" placeholder="Add a favorite quote here." required>If your fidelity to perfectionism is too high, you never do anything.</textarea>
             </div>
 
             <div class="form-group">
                 <label for="quoteAuthor">Quote author <span class="required" aria-label="required">*</span></label>
-                <input type="text" id="quoteAuthor" name="quoteAuthor" value="David Foster Wallace" required>
+                <input type="text" id="quoteAuthor" name="quoteAuthor" value="David Foster Wallace" placeholder="Enter the author of the quote." required>
             </div>
         </div>
 
@@ -294,12 +424,12 @@
             
             <div class="form-group">
                 <label for="funnyThing">Funny thing <span class="optional">(optional)</span></label>
-                <textarea id="funnyThing" name="funnyThing"></textarea>
+                <textarea id="funnyThing" name="funnyThing" placeholder="Tell us something funny about yourself."></textarea>
             </div>
 
             <div class="form-group">
                 <label for="shareStatement">Something I would like to share <span class="optional">(optional)</span></label>
-                <textarea id="shareStatement" name="shareStatement"></textarea>
+                <textarea id="shareStatement" name="shareStatement" placeholder="Share something about yourself."></textarea>
             </div>
         </div>
 
@@ -360,10 +490,117 @@
         <button type="button" id="clearFormBtn2" aria-label="Clear all form fields">Clear Form</button>
         <button type="button" id="resetFormBtn2" aria-label="Reset form to default values">Reset</button>
         <button type="submit" id="submitBtn" aria-label="Submit the form">Submit</button>
-        <button type="button" id="exportJSONBtn" aria-label="Export form data as JSON file">Export as JSON</button>
+        <button class="nav-btn" type="button" id="displayJSONBtn" aria-label="Display form data as JSON">Generate JSON</button>
+        <button class="nav-btn" type="button" id="generateHTMLBtn" aria-label="Generate introduction HTML page">Generate HTML</button>
     </form>
+        </div>
+
+        <!-- JSON Tab -->
+        <div id="json-tab" class="tab-content">
+            <h2>Introduction JSON</h2>
+            <div id="jsonDisplayContainer"></div>
+        </div>
+
+        <!-- HTML Tab -->
+        <div id="html-tab" class="tab-content">
+            <h2>Introduction HTML</h2>
+            <div id="htmlDisplayContainer"></div>
+            <div id="htmlActionButtons" style="margin-top: 20px; display: flex; gap: 10px;">
+                <button id="downloadHTMLBtn" type="button" style="background-color: #4CAF50; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; font-size: 16px;">⬇ Download HTML</button>
+                <button id="copyHTMLBtn" type="button" style="background-color: #2196F3; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; font-size: 16px;">📋 Copy HTML</button>
+            </div>
+        </div>
+
+        <!-- Introduction Preview Tab -->
+        <div id="preview-tab" class="tab-content">
+            <div id="introductionPreviewContainer" style="background-color: #d5c3cf; padding: 20px; border-radius: 8px; overflow: auto;">
+                <!-- Introduction page will be rendered here -->
+            </div>
+        </div>
+    </div>
 </main>
 <div data-include="./components/footer.html"></div>
 <script src="./scripts/include.min.js"></script>
+<script>
+// Tab Switching with SessionStorage Persistence
+(function() {
+    const TAB_STORAGE_KEY = 'intro_form_active_tab';
+
+    // Switch to a specific tab
+    function switchTab(tabId) {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        // Remove active class from all tabs and buttons
+        tabContents.forEach((tab) => {
+            tab.classList.remove('active');
+        });
+        tabButtons.forEach((btn) => {
+            btn.classList.remove('active');
+        });
+        
+        // Add active class to selected tab and button
+        const selectedTab = document.getElementById(tabId);
+        const selectedBtn = document.querySelector(`[data-tab="${tabId}"]`);
+        
+        if (selectedTab) selectedTab.classList.add('active');
+        if (selectedBtn) selectedBtn.classList.add('active');
+        
+        // Save to sessionStorage
+        sessionStorage.setItem(TAB_STORAGE_KEY, tabId);
+    }
+    
+    // Initialize tab state from sessionStorage
+    function initializeTabs() {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        // Get saved tab or default to 'form-tab'
+        const savedTab = sessionStorage.getItem(TAB_STORAGE_KEY) || 'form-tab';
+        
+        // Hide all tabs and remove active class
+        tabContents.forEach((tab) => {
+            tab.classList.remove('active');
+        });
+        tabButtons.forEach((btn) => {
+            btn.classList.remove('active');
+        });
+        
+        // Show saved tab and activate its button
+        const activeTab = document.getElementById(savedTab);
+        const activeBtn = document.querySelector(`[data-tab="${savedTab}"]`);
+        
+        if (activeTab) activeTab.classList.add('active');
+        if (activeBtn) activeBtn.classList.add('active');
+    }
+    
+    // Add click handlers to tab buttons
+    function setupTabHandlers() {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        
+        tabButtons.forEach((btn) => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tabId = this.getAttribute('data-tab');
+                switchTab(tabId);
+            });
+        });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTabs();
+            setupTabHandlers();
+        });
+    } else {
+        initializeTabs();
+        setupTabHandlers();
+    }
+    
+    // Expose switchTab function globally for external scripts
+    window.switchToTab = switchTab;
+})();
+</script>
 </body>
 </html>
