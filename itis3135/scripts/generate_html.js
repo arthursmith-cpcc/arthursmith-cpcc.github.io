@@ -67,8 +67,8 @@ function displayGeneratedHTML(htmlContent, firstName, lastName) {
 
 function getPictureSource() {
     const pictureInput = document.getElementById('picture');
-    const defaultPicture = '/asmit775/images/carolina_beach_2013.jpg';
-    const defaultFilename = '/asmit775/images/carolina_beach_2013.jpg';
+    const defaultPicture = '/images/carolina_beach_2013.jpg';
+    const defaultFilename = '/images/carolina_beach_2013.jpg';
     
     // Check if a file has been uploaded
     if (pictureInput && pictureInput.files && pictureInput.files.length > 0) {
