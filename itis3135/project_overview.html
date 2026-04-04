@@ -10,22 +10,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap" rel="stylesheet">
     <style>
+        .fullOverview {
+            display: grid;
+            grid-template-columns: .4fr 1.3fr 1.3fr;
+            grid-template-areas: 'gridNav overview overview';
+        }
+
+        .gridNav {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            grid-area: gridNav;
+            position: fixed;
+            top: 230px;
+            border-right: 1px solid #853b28;
+            width: 125px;
+            box-sizing: border-box;
+        }
+
+        .overviewSections {
+            grid-area: overview;
+        }
+
         ul {
-            width: 80%;
+            max-width: 90%;
         }
         li {
             margin: 5px 0;
         }
         .sub-ul {
             width: 100%;
-            list-style-type:square;
+            list-style-type: square;
+            padding: 0 0 0 20px;
+            box-sizing: border-box;
         }
         .sub-li {
             background-color: #d5c3cf;
             margin-bottom: 10px;
+            width: 85%;
         }
         .pic-ul {
             list-style-type: none;
+        }
+
+        .figPic {
+            max-width: 100%;
+            max-height: 400px;
+        }
+
+        @media (max-width: 750px) {
+            .gridNav {
+                width: 100px;
+                top: 300px;
+            }
+
+            ul {
+                max-width: 90%;
+            }
+            .fullOverview {
+                grid-template-columns: .5fr 1.5fr;
+                grid-template-areas: 'gridNav overview';
+            }
         }
     </style>
 </head>
@@ -33,52 +78,62 @@
 <div data-include="./components/header.html"></div>
 <main>
     <h2>Project Overview</h2>
-    <ul>
-        
-        <li>Project Details
+    <div class="fullOverview">
+    <nav class="gridNav"><a href="#top">Details</a><a href="#client">Client</a><a href="#wireframe">Wireframe</a><a href="#siteMap">Site Map</a><a href="#pageDesign">Pages</a><a href="#functions">Functionality</a></nav>
+    <ul class="overviewSections">        
+        <li id="details">Project Details
         <div class="sub-li">
         <ul class="sub-ul">
-            <li>Description and Purpose: This application will be a website that provides information about my client's services, a history of the client's company, and the client's contact information for potential customers.</li>
-            <li>Intended Users: The website's intended users are individuals and businesses who have an interest in my client's services or who would like to know more about the client's company.</li>
-            <li>Site Content Overview: The site will consist of Home, About, Services, Media, and Contact pages. It will give potential clients a place to read about the client, the business, and the services offered; a way to contact the client directly; and a content gallery to view.</li>
+            <li><strong>Description and Purpose:</strong> This application will be a website that provides information about and examples of my client's services, a history of the client's company, and the client's contact information for potential customers.</li>
+            <li><strong>Intended Users:</strong> The website's intended users are individuals and businesses who have an interest in my client's services or who would like to know more about the client's company.</li>
+            <li><strong>Site Content Overview:</strong> The site will consist of Home, About, Services, Media, and Contact pages. It will give potential clients a place to read about the client, the business, and the services offered; a way to contact the client directly; and a content gallery to view.</li>
         </ul>
         </div>
         </li>
-        <li>Client Information
+        <li id="client">Client Information
         <div class="sub-li">
         <ul class="sub-ul">
-            <li>Name: Jaycee</li>
-            <li>Business: 3 Jay Media</li>
-            <li>E-mail: 3jaymedia@gmail.com</li>
+            <li><strong>Name:</strong> James "Jaycee" Carver</li>
+            <li><strong>Business:</strong> 3 Jay Media</li>
+            <li><strong>E-mail:</strong> 3jaymedia@gmail.com</li>
         </ul>
         </div>
         </li>
-        <li>Wireframe
+        <li id="wireframe">Wireframe
         <div class="sub-li">
         <ul class="pic-ul">
-            <li><figure><a href="https://drive.google.com/file/d/1byfrRdXGdpKUB7ieZYFB2oE7kSUK-DsZ/view?usp=sharing" target="_blank"><img src="./images/client_wireframe.png"></a><figcaption>Mock up of basic structure of client site webpages</figcaption></figure></li>
+            <li><figure><a href="https://drive.google.com/file/d/1byfrRdXGdpKUB7ieZYFB2oE7kSUK-DsZ/view?usp=sharing" target="_blank"><img class="figPic" src="./images/client_wireframe.png"></a><figcaption>Mock up of basic structure of client site webpages</figcaption></figure></li>
         </ul>
         </div>
         </li>
-        <li>Site Map
+        <li id="siteMap">Site Map
         <div class="sub-li">
         <ul class="pic-ul">
-            <li><figure><a href="https://drive.google.com/file/d/1V2neeYb9L5GEBoKbphzMPx1WV-C2n-3h/view?usp=sharing" target="_blank"><img src="./images/site_map.png"></a><figcaption>Client website site map</figcaption></figure></li>
+            <li><figure><a href="https://drive.google.com/file/d/1V2neeYb9L5GEBoKbphzMPx1WV-C2n-3h/view?usp=sharing" target="_blank"><img class="figPic" src="./images/site_map.png"></a><figcaption>Client website site map</figcaption></figure></li>
         </ul>
         </div>
         </li>
-        <li>Page Design
+        <li id="pageDesign">Page Design
         <div class="sub-li">
         <ul class="sub-ul">
-            <li>Home: </li>
-            <li>About: </li>
-            <li>Services: </li>
-            <li>Media: </li>
-            <li>Contact: </li>
+            <li><strong>Home:</strong> The purpose of this page is to provide a brief introduction to the business to site visitors. The audience will be potential clients. Content will be a picture and a brief introductory paragraph. Users will not be asked to enter data. The page will contain hyperlinks to the About and Services pages. An action that will take place on the page is navigation to another page when a hyperlink is clicked.</li>
+            <li><strong>About:</strong> The purpose of this page is to provide potential clients with more information about the business and its owner. The audience will be potential clients who need more background information to decide whether they want to do business with this company. Content will be a picture and a few paragraphs. Users will not be asked to enter data. The page will contain a hyperlink to the Services page. An action that will take place on the page is navigation to another page when a hyperlink is clicked.</li>
+            <li><strong>Services:</strong> This page will provide detail about the services that are offered by the company. The audience will be potential clients who are interested in learning more about the company's service offerings. Content will be a picture and a paragraph or two for each service. Users will not be asked to enter data. The page will contain hyperlinks to the Media and Contact pages. An action that will take place on the page is navigation to another page when a hyperlink is clicked.</li>
+            <li><strong>Media: </strong> On this page, site visitors will be able to see examples of the company's work. The audience will be potential clients who would like to see examples of the type and quality of work previously completed by the company. Content will be thumbnails with embedded links. Users will not be asked to enter data. The page will contain links to a photo gallery and to the company's Youtube page. An action that will take place on the page is navigation to another page when a hyperlink is clicked.</li>
+            <li><strong>Gallery:</strong> This page will be a gallery of photos that represent the company's work. The audience will be potential clients who would like to see examples of the type and quality of work previously completed by the company. Content will be a photo gallery.Users will not be asked to enter data. The page will contain buttons that allow the user to interact with the gallery. Actions that will take place on the page are moving forwards or backwards in the gallery and opening a larger version of the photo.</li>
+            <li><strong>Contact:</strong> The purpose of this page is to provide the visitor with contact information for the company. The audience will be potential clients who have decided that they want to get in contact with the company. Content will be contact information. Users will not be asked to enter data. The page will contain a mailto link for the company's e-mail address. An action that will take place on the page is opening a new message window using the visitor's e-mail application when the mailto link is clicked.</li>
+        </ul>
+        </div>
+        </li>
+        <li id="functions">Dynamic Functionality
+        <div class="sub-li">
+        <ul class="sub-ul">
+            <li>On the Gallery page, I plan to use JavaScript to implement a photo gallery that automatically scrolls and that overlays a larger version of a picture on the page when it is selected instead of going to another page to display the picture or opening it in a new tab or window. </li>
         </ul>
         </div>
         </li>        
     </ul>
+    </div>
 </main>
 <div data-include="./components/footer.html"></div>
 <script src="./scripts/include.min.js"></script>
