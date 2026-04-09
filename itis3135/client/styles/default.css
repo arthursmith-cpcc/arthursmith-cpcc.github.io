@@ -1,9 +1,20 @@
-/* #09090B #203446 #FAF0CA #F65E3C #580E20*/
+/* #09090B #203446 #FAF0CA #B9AEC1 #580E20 #C5E5E7*/
+html {
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #203446;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    grid-template-areas: 'header' 'main' 'footer';
+    min-height: 100vh;
 }
 main {
     padding: 0;
@@ -11,12 +22,20 @@ main {
     box-sizing: border-box;
     position: relative;
     top: 150px;
+    font-family: "Open Sans", sans-serif;
+    color: #c5e5e7;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    grid-template-areas: 'homeText homeFigure';
+    min-height: 100%;
 }
 
 header, footer{
     box-sizing: border-box;
     margin: 0;
-    padding: 10px;
+    padding-top: 5px;
+    padding-left: 3%;
 }
 .headerLogo {
     max-width: 200px;
@@ -25,7 +44,7 @@ header, footer{
 }
 
 header {
-    /*background-color: #;*/
+    background-color: #203446;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,31 +52,59 @@ header {
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 135px;
+    height: 15vh;
+    z-index: 1;
+    grid-area: header;
 }
 
 header nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 75%;
+    width: 70%;
     font-size: 1.7rem;
     border-bottom: 1px solid #faf0ca;
 }
 
 footer {
     background-color: #09090b;
-    position: fixed;
-    bottom: 0;
     width: 100vw;
-    color: #f65e3c;
+    height: 15vh;
+    color: #b9aec1;
     text-align: center;
+    grid-area: footer;
+    box-sizing: border-box;
 }
 footer p {
-    margin: 2px;
+    margin: 3px;
 }
 a {
     text-decoration: none;
     color: #faf0ca;
     margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.homepageText {
+    grid-area: homeText;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
+    color: #b9aec1;
+}
+figure {
+    margin: 0;
+    padding: 0;
+    grid-area: homeFigure;
+    max-height: 70vh;
+    width: 100%;
+}
+.homepageFigure img {
+    max-height: 70vh;
+    width: 100%;
+    object-fit: cover;
 }
