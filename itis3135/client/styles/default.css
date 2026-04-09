@@ -29,7 +29,7 @@ main {
     grid-template-columns: .8fr 1.2fr;
     grid-template-areas: 'homeText homeFigure';
     min-height: calc(100vh - 150px);
-    margin-bottom: 25vh;
+    margin-bottom: 27vh;
 }
 
 header, footer{
@@ -109,7 +109,7 @@ p a {
 
 h1 {
     font-family: "Montserrat", sans-serif;
-    font-size: 5rem;
+    font-size: 4rem;
     margin: 0;
     padding: 0;
     color: #b9aec1;
