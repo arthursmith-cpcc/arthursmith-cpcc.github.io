@@ -21,15 +21,15 @@ main {
     margin: 0;
     box-sizing: border-box;
     position: relative;
-    top: 150px;
+    top: 17vh;
     font-family: "Open Sans", sans-serif;
     color: #c5e5e7;
     grid-area: main;
     display: grid;
     grid-template-columns: .8fr 1.2fr;
     grid-template-areas: 'homeText homeFigure';
-    min-height: calc(100vh - 150px);
-    margin-bottom: 27vh;
+    min-height: calc(100vh - 30vh);
+    margin-bottom: 30vh;
 }
 
 header, footer{
@@ -149,4 +149,5 @@ figure {
         min-height: calc(100vh - 150px);
         margin-bottom: 80vh;
     }
+
 }
