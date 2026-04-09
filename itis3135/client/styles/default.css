@@ -150,4 +150,9 @@ figure {
         margin-bottom: 80vh;
     }
 
+    footer p {
+        margin: 2px;
+        font-size: .9em;
+    }
+
 }
