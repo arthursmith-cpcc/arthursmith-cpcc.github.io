@@ -28,8 +28,8 @@ main {
     display: grid;
     grid-template-columns: .8fr 1.2fr;
     grid-template-areas: 'homeText homeFigure';
-    min-height: calc(100vh - (16.1vh + 150px));
-    margin-bottom: 16.1vh;
+    min-height: calc(100vh - 150px);
+    margin-bottom: 15vh;
 }
 
 header, footer{
