@@ -29,7 +29,7 @@ main {
     grid-template-columns: .8fr 1.2fr;
     grid-template-areas: 'homeText homeFigure';
     min-height: calc(100vh - 150px);
-    margin-bottom: 15vh;
+    margin-bottom: 20vh;
 }
 
 header, footer{
