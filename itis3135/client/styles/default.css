@@ -29,7 +29,7 @@ main {
     grid-template-columns: .8fr 1.2fr;
     grid-template-areas: 'homeText homeFigure';
     min-height: calc(100vh - 150px);
-    margin-bottom: 20vh;
+    margin-bottom: 25vh;
 }
 
 header, footer{
@@ -78,16 +78,33 @@ footer {
 }
 footer p {
     margin: 3px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1em;
 }
 a {
     text-decoration: none;
     color: #faf0ca;
     margin-bottom: 15px;
     font-family: "Montserrat", sans-serif;
+    transition: .4s ease-in;
+}
+
+a:hover {
+    transform: scale(1.2);
+    color: #f65ec3;
+}
+
+a:active {
+    color: white;
+}
+
+p a {
+    text-decoration: underline;
 }
 
 .homepageText {
     grid-area: homeText;
+    padding: 3%;
 }
 
 h1 {
@@ -103,9 +120,33 @@ figure {
     grid-area: homeFigure;
     max-height: 70vh;
     width: 100%;
+    overflow: hidden;
+    position: absolute;
 }
 .homepageFigure img {
     max-height: 70vh;
     width: 100%;
     object-fit: cover;
+    transition: 20s ease-in-out;
+}
+
+@media (max-width: 720px) {
+    header {
+        height: 10vh;
+        flex-wrap: wrap;
+    }
+    header nav {
+        flex-wrap: wrap;
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'homeText''homeFigure';
+        top: 10vh;
+        min-height: calc(100vh - 150px);
+        margin-bottom: 80vh;
+    }
 }

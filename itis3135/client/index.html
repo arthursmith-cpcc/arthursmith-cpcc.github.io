@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <script src="./scripts/homeImgLoad.js"></script>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
@@ -16,8 +17,17 @@
         <div class="homepageText">
         <h1>3 Jay Media</h1>
         <h2>You Bring the Vision. We Bring Precision.</h2>
+        <p><strong>Based in Charlotte, NC.</strong></p>
+        <p>We specialize in audio/visual production and post-production assistance in the following areas:</p>
+            <ul>
+                <li>Multi-track mixing and mastering</li>
+                <li>Podcast Recording</li>
+                <li>Videography and Editing</li>
+                <li>Photography</li>
+            </ul>
+        <p>Find out more about what we can offer on our <a href="./services.html">Services</a> page!</p>
         </div>
-        <figure class="homepageFigure"><img src="./images/mixer1.jpg" alt="audio mixing console"></figure>
+        <figure class="homepageFigure"><img id="homeImg" src="./images/mixer1.jpg" alt="audio mixing console"></figure>
     </main>
     <div data-include="./components/footer.html"></div>
     <script src="./scripts/include.min.js"></script>
