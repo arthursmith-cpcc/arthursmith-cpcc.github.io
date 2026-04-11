@@ -57,18 +57,21 @@
         @media (max-width: 720px) {
             main {
                 grid-template-areas: 'heading1' 'heading2' 'servicesText' 'list' 'servicesImg';
-                top: 15vh;
-                margin-bottom: 15vh;
+                top: 11vh;
+                margin-bottom: 11vh;
             }
             .servicesText {
                 padding: 2%;
             }
             figure {
                 padding: 0;
-                margin: auto;
+                margin: 0;
             }
             footer {
                 margin-top: 0;
+            }
+            .svcH1 {
+                padding-left: 2%;
             }
         }
     </style>
@@ -76,7 +79,7 @@
 <body>
     <div data-include="./components/header.html"></div>
     <main>
-        <h1>Services</h1>
+        <h1 class="svcH1">Services</h1>
         <h2><em>You have a story to tell. Let us help you bring it to life.</em></h2>
         <p class="servicesText">Whether you're not sure where to get started, or if you need help placing the finishing touches on your masterpiece, <span>3 Jay Media</span>&apos;s experts can keep your project flowing. Check out our list of services.</p>
         <figure><img src="./images/podcast1.jpg" alt="podcast recording setup"></figure>
