@@ -9,11 +9,83 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        main {
+            grid-template-areas: 'heading1 heading2' 'servicesText list' 'servicesImg list';
+        }
+        h1 {
+            grid-area: heading1;
+        }
+        h2 {
+            grid-area: heading2;
+            padding-left: 4%;
+            background-color: #15222e;
+            margin-bottom: 0;
+        }
+        .servicesText {
+            grid-area: servicesText;
+            padding-right: 2%;
+        }
+        figure {
+            grid-area: servicesImg;
+            width: 100%;
+            max-height: 73.5vh;
+        }
+        figure img {
+            width: 100%;
+            max-height: 73.5vh;
+            object-fit: cover;
+        }
+        .servicesList {
+            grid-area: list;
+            box-sizing: border-box;
+            padding-right: 5%;
+            background-color: #15222e;
+            margin: 0;
+            padding-top: 3%;
+            padding-bottom: 5vh;
+        }
+        
+        footer {
+            margin-top: -13vh;
+        }
+
+        li strong {
+            color: #b9aec1;
+        }
+        
+        @media (max-width: 720px) {
+            main {
+                grid-template-areas: 'heading1' 'heading2' 'servicesText' 'list' 'servicesImg';
+                top: 15vh;
+                margin-bottom: 15vh;
+            }
+            .servicesText {
+                padding: 2%;
+            }
+            figure {
+                padding: 0;
+                margin: auto;
+            }
+            footer {
+                margin-top: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
     <main>
-        <h2>You have a story to tell. Let us help you bring it to life.</h2>
+        <h1>Services</h1>
+        <h2><em>You have a story to tell. Let us help you bring it to life.</em></h2>
+        <p class="servicesText">Whether you're not sure where to get started, or if you need help placing the finishing touches on your masterpiece, <span>3 Jay Media</span>&apos;s experts can keep your project flowing. Check out our list of services.</p>
+        <figure><img src="./images/podcast1.jpg" alt="podcast recording setup"></figure>
+        <ul class="servicesList">
+            <li><strong>Multi-track Recording and Mixing</strong><p>We breathe new life into your music or audio project. Our experienced engineers will blend, balance, and enhance every detail to transform your raw recordings into a polished, broadcast-ready final product &mdash; all while offering the flexibility of individual re-records and the convenience of remote collaboration. For all your projects, we deliver the clarity and cohesion that makes your work stand out.</p></li>
+            <li><strong>Podcast Engineering</strong><p>Our podcast engineering service delivers broadcast-quality audio that keeps your listeners engaged. We capture each speaker, guest, and audio element on separate tracks, giving our experienced engineers complete control to balance voices, remove background noise, and enhance clarity. From adjusting levels and optimizing sound dynamics to adding professional effects and seamless transitions, we provide listener-ready episodes &mdash; whether recording in-studio or remotely. From weekly shows and interview series to branded audio content, we deliver the crisp, professional sound that builds your audience and reputation.</p></li>
+            <li><strong>Videography and Editing</strong><p>Let us record your most creative moments or transform your raw footage into compelling visual stories that captivate your audience. With our videography and editing service we capture every scene, angle, and moment with professional-grade equipment, then our experienced editors meticulously assemble, color-correct, and enhance each frame. From adjusting pacing and adding dynamic transitions to incorporating graphics, music, and sound design, we turn your footage into a polished, broadcast-ready final product. Whether you're producing corporate videos, social media content, documentaries, or branded films, we deliver the cinematic quality and storytelling that elevates your message and engages your viewers.</p></li>
+            <li><strong>Photography and Editing</strong><p>Our photography and editing service transforms your moments into stunning visual art that tells your story. After capturing every detail, emotion, and scene with professional-grade equipment and expert composition, our experienced editors then meticulously enhance, retouch, and perfect each image. From color correction and lighting adjustments to creative filters, retouching, and seamless compositing, we turn your raw photos into polished, gallery-ready final products. Whether you're producing portrait collections, product photography, event coverage, or branded imagery, we deliver the visual excellence and artistic quality that showcases your subject and resonates with your audience.</p></li>
+        </ul>
     </main>
     <div data-include="./components/footer.html"></div>
     <script src="./scripts/include.min.js"></script>

@@ -113,6 +113,11 @@ figure {
     margin: 0;
     padding: 0;   
 }
+span {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2em;
+            color: #b9aec1;
+        }
 
 @media (max-width: 720px) {
     header {
