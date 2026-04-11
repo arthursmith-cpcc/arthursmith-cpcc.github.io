@@ -11,6 +11,16 @@
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <script src="./scripts/homeImgLoad.js"></script>
     <style>
+        main {
+            grid-template-areas: 'homeText homeFigure';
+        }
+        figure {
+            grid-area: homeFigure;
+            max-height: 70vh;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+        }
         .homepageText {
             grid-area: homeText;
             padding-right: 2%;
@@ -25,6 +35,9 @@
         @media (max-width: 720px) {
             .homepageText {
                 padding: 3%;
+            }
+            main {
+                grid-template-areas: 'homeText''homeFigure';
             }
         }
     </style>

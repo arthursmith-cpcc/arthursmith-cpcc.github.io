@@ -9,12 +9,62 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        main {
+            grid-template-areas: 'heading1 heading1' 'heading2 aboutImg' 'textArea aboutImg';
+        }
+        h1 {
+            grid-area: heading1;
+        }
+        h2 {
+            grid-area: heading2;
+        }
+        .aboutText {
+            grid-area: textArea;
+            margin-top: -25%;
+        }
+        figure {
+            margin-right: 15%;
+            display: flex;
+            padding-left: 35%;
+        }
+        figure img {
+            grid-area: aboutImg;
+            max-width: 100%;
+            max-height: 40vh;
+        }
+        span {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2em;
+            color: #b9aec1;
+        }
+        @media (max-width: 720px) {
+            main {
+                grid-template-areas: 'heading1' 'heading2' 'aboutImg' 'textArea';
+                padding: 2%;
+                margin-bottom: 20vh;
+            }
+            .aboutText {
+                margin: 0;
+            }
+            figure {
+                padding: 0;
+                margin: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
-    <main class="aboutMain">
+    <main>
         <h1>About Us</h1>
-        <figure></figure>
+        <h2><em>Bringing more than 20 years of audio/visual expertise</em></h2>
+        <div class="aboutText">
+            <p><span>3 Jay Media</span> founder James "Jaycee" Carver began his career in audio/visual production in the early 2000s as a studio and live sound engineer for a Charlotte area band. But his passion for helping aspiring artists bring their visions to life goes back further than that.</p>
+            <p>Since those early days, Jaycee has perfected his craft through numerous personal and freelance projects. As a result of his determination to "keep working until we get it right," Jaycee has gained a solid reputation in the indie artist community and an extensive list of satisfied clients.</p>
+            <p><span>3 Jay Media</span> represents the culmination of skills Jaycee has built through a lifetime of dedication to the craft that he loves.</p>
+        </div>
+        <figure><img src="./images/jaycee_black_and_white.jpg" alt="picture of jaycee carver"></figure>
     </main>
     <div data-include="./components/footer.html"></div>
     <script src="./scripts/include.min.js"></script>
