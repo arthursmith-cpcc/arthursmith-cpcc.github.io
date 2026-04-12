@@ -5,69 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 Jay Media | Media</title>
     <link rel="stylesheet" href="./styles/default.css">
+    <link rel="stylesheet" href="./styles/media.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <style>
-        main {
-            display: flex;
-            flex-direction: column;
-        }
-        .mediaItems {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-        }
-        figure:hover {
-            outline: 6px solid #f65ec3;
-            transform: scale(1.05);
-        }
-        figure {
-            width: 40vw;
-            max-height: 500px;
-            border-radius: 30px;
-            padding: 0;
-            margin: 0;
-            transition: .5s ease-in-out;
-        }
-        figure img {
-            width: 40vw;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 30px;
-            display: block;
-        }
-        a {
-            margin: 0;
-        }
-
-        @media (max-width: 720px) {
-            main {
-                top: 12vh;
-                margin-bottom: 17vh;
-            }
-            .heading1 {
-                padding: 2%;
-            }
-            .mediaItems {
-                margin: auto;
-                flex-direction: column;
-                justify-content: center;
-            }
-            .mediaItems {
-                margin-top: 0;
-            }
-            figure {
-                max-height: 500px;
-                width: 85vw;
-            }
-            figure img {
-                max-height: 500px;
-                width: 85vw;
-            }
-        }
-    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>

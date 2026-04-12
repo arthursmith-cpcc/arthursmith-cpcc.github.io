@@ -1,0 +1,64 @@
+main {
+    grid-template-areas: 'heading1 heading2' 'servicesText list' 'servicesImg list';
+}
+h1 {
+    grid-area: heading1;
+}
+h2 {
+    grid-area: heading2;
+    padding-left: 4%;
+    background-color: #15222e;
+    margin-bottom: 0;
+}
+.servicesText {
+    grid-area: servicesText;
+    padding-right: 2%;
+}
+figure {
+    grid-area: servicesImg;
+    width: 100%;
+    max-height: 73.5vh;
+}
+figure img {
+    width: 100%;
+    max-height: 73.5vh;
+    object-fit: cover;
+}
+.servicesList {
+    grid-area: list;
+    box-sizing: border-box;
+    padding-right: 5%;
+    background-color: #15222e;
+    margin: 0;
+    padding-top: 3%;
+    padding-bottom: 5vh;
+}
+
+footer {
+    margin-top: -13vh;
+}
+
+li strong {
+    color: #b9aec1;
+}
+
+@media (max-width: 720px) {
+    main {
+        grid-template-areas: 'heading1' 'heading2' 'servicesText' 'list' 'servicesImg';
+        top: 11vh;
+        margin-bottom: 11vh;
+    }
+    .servicesText {
+        padding: 2%;
+    }
+    figure {
+        padding: 0;
+        margin: 0;
+    }
+    footer {
+        margin-top: 0;
+    }
+    .svcH1 {
+        padding-left: 2%;
+    }
+}

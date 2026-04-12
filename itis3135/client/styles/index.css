@@ -1,0 +1,30 @@
+main {
+        grid-template-areas: 'homeText homeFigure';
+}
+figure {
+    grid-area: homeFigure;
+    max-height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.homepageText {
+    grid-area: homeText;
+    padding-right: 2%;
+    padding-top: 2%;
+}
+.homepageFigure img {
+    max-height: 70vh;
+    width: 100%;
+    object-fit: cover;
+    transition: 20s ease-in-out;
+}
+@media (max-width: 720px) {
+    .homepageText {
+        padding: 3%;
+    }
+    main {
+        grid-template-areas: 'homeText''homeFigure';
+        margin-bottom: 75vh;
+    }
+}

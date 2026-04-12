@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20vh;
+
+}
+.contactText {
+    text-align: center;
+}
+.contactText p {
+    font-size: 1.75em;
+    width: 50vw;
+    margin: auto;
+    margin-bottom: 5vh;
+}
+.messageButton {
+    width: 25vw;
+    max-height: 200px;
+    margin: auto;
+    background-color: #faf0ca;
+    color: #15222e;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 15px;
+    line-height: 40px;
+    transition: .5s ease-in-out;
+    padding: 2px;
+    box-sizing: border-box;
+}
+.messageButton:hover {
+    background-color: #f65ec3;
+    transform: scale(1.2);
+}
+
+@media (max-width: 720px) {
+    main {
+        top: 12vh;
+        margin-bottom: 15vh;
+    }
+    .heading1 {
+        padding-left: 2%;
+    }
+    .contactText p {
+        width: 80vw;
+    }
+    .messageButton {
+        width: 50vw;
+    }
+}
