@@ -126,20 +126,21 @@ button:focus-visible {
 }
 
 .refresh-btn {
-	position: fixed;
-	top: 20px;
+	display: none;
+	/*top: 20px;
 	right: 20px;
 	padding: 0.85rem 1.3rem;
 	background: #007bff;
 	color: white;
 	border: solid 2px black;
 	border-radius: 0.85rem;
-	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);*/
+
 }
 
-.refresh-btn:hover {
+/*.refresh-btn:hover {
 	background: #0056b3;
-}
+}*/
 
 .gallery-overlay {
 	position: fixed;
@@ -202,9 +203,20 @@ button:focus-visible {
 }
 
 @media (max-width: 720px) {
+	main {
+		top: 10vh;
+	}
+	
 	.card {
 		flex: 0 0 80%;
 	}
+	.card img {
+		display: block;
+		min-width: 300px;
+		max-width: 100%;
+		height: 240px;
+		object-fit: cover;
+	}	
 	.gallery {
 		padding: 1.2rem 0.8rem 2rem;
 	}
