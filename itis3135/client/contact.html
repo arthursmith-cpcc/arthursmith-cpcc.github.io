@@ -9,11 +9,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+
+        }
+        .contactText {
+            text-align: center;
+        }
+        .contactText p {
+            font-size: 1.75em;
+            width: 50vw;
+            margin: auto;
+            margin-bottom: 5vh;
+        }
+        .messageButton {
+            width: 25vw;
+            max-height: 200px;
+            margin: auto;
+            background-color: #faf0ca;
+            color: #15222e;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 15px;
+            line-height: 40px;
+            transition: .5s ease-in-out;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+        .messageButton:hover {
+            background-color: #f65ec3;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 720px) {
+            main {
+                top: 12vh;
+                margin-bottom: 10vh;
+            }
+            .heading1 {
+                padding-left: 2%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div data-include="./components/header.html"></div>
     <main>
-        <h2></h2>
+        <h1 class="heading1">Contact Us</h1>
+        <div class="contactText">
+        <h2><em>Don&apos;t wait! Start your creative journey today!</em></h2>
+        <p>Click the button below to send us a message describing your project and how you would like us to help you bring it to life.</p>
+        <a href="mailto:3jaymedia@gmail.com" target="_blank"><div class="messageButton">Send us a message!</div></a>
+        </div>
     </main>
     <div data-include="./components/footer.html"></div>
     <script src="./scripts/include.min.js"></script>
